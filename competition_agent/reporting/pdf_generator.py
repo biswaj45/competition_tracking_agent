@@ -279,15 +279,16 @@ class CompetitorReportGenerator:
             "\nMarket Positioning:",
             "• Focus on high-activity segments: " +
             ", ".join(
-                k for k, v in competitor_activity['type_summary'].items()
-                if v['total_mentions'] > competitor_activity['total_mentions'] / 3
-            ),
+                k for k, v in competitor_activity.get('type_summary', {}).items()
+                if v.get(('total_mentions', 'sum'), 0) > 
+                sum(x.get(('total_mentions', 'sum'), 0) for x in competitor_activity.get('type_summary', {}).values()) / 3
+            ) or "No high-activity segments identified",
             "\nCompetitive Response:",
             "• Monitor high-impact competitors: " +
             ", ".join(
                 c['competitor_name'] for c in 
-                competitor_activity['most_active_competitors'][:3]
-            )
+                competitor_activity.get('most_active_competitors', [])[:3]
+            ) or "No high-impact competitors identified"
         ]
         
         for rec in recommendations:
