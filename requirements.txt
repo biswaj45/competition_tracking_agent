@@ -1,5 +1,6 @@
 requests
 beautifulsoup4
-sqlite3
 rich
 streamlit
+python-dotenv
+pandas
