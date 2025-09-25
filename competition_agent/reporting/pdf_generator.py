@@ -107,8 +107,8 @@ class CompetitorReportGenerator:
         
         # Build report content
         story = []
-        self._add_cover_page(story)
-        self._add_executive_summary(story, insights)
+        self._add_cover_page(story, days)
+        self._add_executive_summary(story, insights, days)
         self._add_competitor_tracking(story, insights)
         self._add_product_gap_analysis(story, insights)
         self._add_visuals_and_trends(story, insights, figures)
@@ -118,45 +118,36 @@ class CompetitorReportGenerator:
         doc.build(story)
         return output_path
     
-    def _add_cover_page(self, story: List) -> None:
-        """Add the cover page"""
-        # Title
+    def _add_cover_page(self, story: List, days: int) -> None:
+        """Add the cover page with correct date range"""
         story.append(Paragraph(
             "Competitive Intelligence Report — Fraud Solutions Industry",
             self.styles.styles['CompReportTitle']
         ))
-        
-        # Subtitle
         story.append(Paragraph(
             "Tracking competitors of TransUnion Fraud Solutions",
             self.styles.styles['CompReportSubsection']
         ))
-        
-        # Date range
         end_date = datetime.now()
-        start_date = end_date - timedelta(days=7)
-        date_range = f"{start_date.strftime('%B %d')} - {end_date.strftime('%B %d, %Y')}"
-        
-        story.append(Spacer(1, 30))
+        start_date = end_date - timedelta(days=days)
+        date_range = f"{start_date.strftime('%B %d, %Y')} - {end_date.strftime('%B %d, %Y')}"
+        story.append(Spacer(1, 18))
         story.append(Paragraph(
-            f"Week of {date_range}",
+            f"Analysis Period: {date_range}",
             self.styles.styles['CompReportBody']
         ))
-        
-        story.append(PageBreak())
+        story.append(Spacer(1, 18))
+    # No page break here
     
-    def _add_executive_summary(self, story: List, insights: Dict) -> None:
-        """Add executive summary section with 6-month trends"""
+    def _add_executive_summary(self, story: List, insights: Dict, days: int) -> None:
+        """Add executive summary section with correct period"""
+        months = max(1, round(days / 30))
         story.append(Paragraph(
-            "Executive Summary (6-Month Analysis)",
+            f"Executive Summary ({months}-Month Analysis)",
             self.styles.styles['CompReportSection']
         ))
-        
-        # Key takeaways
         activity = insights['competitor_activity']
         features = insights['feature_analysis']
-        
-        # Process the activity summary
         type_summary = activity.get('type_summary', {})
         total_mentions = sum(
             summary.get(('total_mentions', 'sum'), 0) 
@@ -166,33 +157,26 @@ class CompetitorReportGenerator:
             summary.get(('high_impact', 'sum'), 0)
             for summary in type_summary.values()
         )
-        
-        # Find most active segment
         most_active = max(
             type_summary.items(),
             key=lambda x: x[1].get(('total_mentions', 'sum'), 0),
             default=('Unknown', {})
         )[0]
-        
-        # Calculate monthly averages
-        monthly_avg_mentions = total_mentions / 6  # 6 months
-        monthly_avg_impacts = high_impact_events / 6
-        
+        monthly_avg_mentions = total_mentions / months
+        monthly_avg_impacts = high_impact_events / months
         takeaways = [
             f"Tracked {total_mentions} competitor activities across all segments (avg. {monthly_avg_mentions:.0f}/month)",
             f"Identified {high_impact_events} high-impact developments (avg. {monthly_avg_impacts:.1f}/month)",
-            f"Observed {features.get('feature_count', 0)} distinct product features over 6 months",
+            f"Observed {features.get('feature_count', 0)} distinct product features over {months} months",
             f"{len(features.get('new_features', []))} new features introduced in this period",
             f"Most active segment: {most_active}"
         ]
-        
         for takeaway in takeaways:
             story.append(Paragraph(
                 f"• {takeaway}",
                 self.styles.styles['CompReportBody']
             ))
-        
-        story.append(PageBreak())
+        story.append(Spacer(1, 10))
     
     def _add_competitor_tracking(self, story: List, insights: Dict) -> None:
         """Add competitor tracking section"""
@@ -215,7 +199,7 @@ class CompetitorReportGenerator:
                 comp_type.lower()
             )
         
-        story.append(PageBreak())
+    # No page break here
     
     def _add_product_gap_analysis(self, story: List, insights: Dict) -> None:
         """Add product gap analysis section"""
@@ -248,7 +232,7 @@ class CompetitorReportGenerator:
             
             story.append(table)
         
-        story.append(PageBreak())
+    # No page break here
     
     def _add_visuals_and_trends(self, story: List, insights: Dict, figures: Dict) -> None:
         """Add visualizations section"""
@@ -267,7 +251,7 @@ class CompetitorReportGenerator:
             story.append(img)
             story.append(Spacer(1, 20))
         
-        story.append(PageBreak())
+    # No page break here
     
     def _add_recommendations(self, story: List, insights: Dict) -> None:
         """Add recommendations section"""
