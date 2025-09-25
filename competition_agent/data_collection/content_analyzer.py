@@ -1,11 +1,12 @@
 """
-Enhanced content filtering and relevance detection
+Enhanced content filtering and relevance detection with Hugging Face models
 """
 from typing import List, Set, Dict, Optional
 import re
 from textblob import TextBlob
 from nltk.tokenize import sent_tokenize
 import nltk
+from ..llm.hf_analyzer import HFAnalyzer
 
 class ContentAnalyzer:
     def __init__(self):
@@ -15,9 +16,19 @@ class ContentAnalyzer:
         except LookupError:
             nltk.download('punkt')
             
+        # Initialize Hugging Face analyzer
+        try:
+            self.hf_analyzer = HFAnalyzer()
+            self.use_transformer = True
+            print("Initialized Hugging Face models successfully")
+        except Exception as e:
+            print(f"Warning: Hugging Face initialization failed: {str(e)}")
+            print("Falling back to basic analysis")
+            self.use_transformer = False
+            
     def analyze_content(self, text: str, company: str, keywords: List[str]) -> Dict:
         """
-        Analyze content for relevance, sentiment, and key information
+        Analyze content using Hugging Face models for enhanced understanding
         
         Args:
             text: Content text to analyze
@@ -33,24 +44,42 @@ class ContentAnalyzer:
         # Clean and normalize text
         clean_text = self._clean_text(text)
         
-        # Calculate relevance score
-        relevance = self._calculate_relevance(clean_text, company, keywords)
-        
-        # Analyze sentiment
-        sentiment = self._analyze_sentiment(clean_text)
-        
-        # Extract key sentences
-        key_sentences = self._extract_key_sentences(clean_text, company, keywords)
-        
-        # Identify mentioned features or products
-        features = self._identify_features(clean_text)
-        
-        return {
-            "relevance_score": relevance,
-            "sentiment": sentiment,
-            "key_sentences": key_sentences,
-            "features": features
-        }
+        if self.use_llm:
+            # Use LLM for enhanced analysis
+            llm_analysis = self.llm_analyzer.analyze_content(clean_text, company, keywords)
+            
+            # Calculate relevance score (combine LLM and traditional methods)
+            basic_relevance = self._calculate_relevance(clean_text, company, keywords)
+            
+            # Combine both analyses
+            return {
+                "relevance_score": (basic_relevance + 
+                    (1 if llm_analysis["impact_level"] == "high" else 
+                     0.5 if llm_analysis["impact_level"] == "medium" else 0.2)
+                ) / 2,  # Average of both scores
+                "sentiment": llm_analysis["sentiment"],
+                "key_sentences": llm_analysis["key_quotes"],
+                "features": llm_analysis["features"],
+                "market_positioning": llm_analysis.get("market_positioning", ""),
+                "competitive_advantages": llm_analysis.get("competitive_advantages", []),
+                "impact_level": llm_analysis["impact_level"]
+            }
+        else:
+            # Fallback to basic analysis
+            relevance = self._calculate_relevance(clean_text, company, keywords)
+            sentiment = self._analyze_sentiment(clean_text)
+            key_sentences = self._extract_key_sentences(clean_text, company, keywords)
+            features = self._identify_features(clean_text)
+            
+            return {
+                "relevance_score": relevance,
+                "sentiment": sentiment,
+                "key_sentences": key_sentences,
+                "features": features,
+                "market_positioning": "",
+                "competitive_advantages": [],
+                "impact_level": "medium"  # Default to medium without LLM
+            }
     
     def _clean_text(self, text: str) -> str:
         """Clean and normalize text content"""

@@ -1,0 +1,178 @@
+COMPETITION TRACKING AGENT: PROJECT FLOW & CODE EXPLANATION
+
+---
+
+# 1. Overview
+This project is a competitive intelligence agent that collects, analyzes, and reports on competitor activity in the fraud solutions industry. It uses web scraping, data analysis, and PDF reporting.
+
+---
+
+# 2. Main Components
+
+## a. Data Collection
+- **Files:** `collector.py`, `sources/google_news.py`, `sources/tech_media.py`, etc.
+- **Purpose:** Collects news and activity data for each competitor from various sources.
+
+### Example: collector.py
+```
+class DataCollector:
+    def __init__(self):
+        self.collectors = {
+            "google_news": GoogleNewsCollector(),
+            "tech_media": TechMediaCollector()
+        }
+        self.logger = logging.getLogger(__name__)
+```
+- Sets up collectors for each data source.
+
+```
+    def collect_all(self, days: int = 7) -> Dict[str, List[Dict]]:
+        results = {"established": [], "mid_sized": [], "startups": []}
+        for category, companies in COMPETITORS.items():
+            for company in companies:
+                company_data = self.collect_for_company(company, days)
+                results[category].extend(company_data)
+        return results
+```
+- Loops through all competitors and sources, collecting data for each.
+
+---
+
+## b. Content Analysis
+- **Files:** `content_analyzer.py`
+- **Purpose:** Scores and summarizes news content for relevance, sentiment, and features.
+
+### Example:
+```
+class ContentAnalyzer:
+    def analyze_content(self, text: str, company: str, keywords: List[str]) -> Dict:
+        clean_text = self._clean_text(text)
+        relevance = self._calculate_relevance(clean_text, company, keywords)
+        sentiment = self._analyze_sentiment(clean_text)
+        key_sentences = self._extract_key_sentences(clean_text, company, keywords)
+        features = self._identify_features(clean_text)
+        return {
+            "relevance_score": relevance,
+            "sentiment": sentiment,
+            "key_sentences": key_sentences,
+            "features": features
+        }
+```
+- Cleans text, calculates relevance, analyzes sentiment, extracts key sentences and features.
+
+---
+
+## c. Storage & Models
+- **Files:** `models.py`
+- **Purpose:** Defines database schema and methods for storing competitors, news, and features.
+
+### Example:
+```
+class Database:
+    def add_news(self, news: News) -> int:
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                INSERT OR IGNORE INTO news (
+                    competitor_id, title, content, source, published_date,
+                    url, impact_level, sentiment_data, relevance_score, features
+                )
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                news.competitor_id,
+                news.title,
+                news.content,
+                news.source,
+                news.published_date.isoformat(),
+                news.url,
+                news.impact_level.value,
+                json.dumps(news.sentiment),
+                news.relevance_score,
+                json.dumps(news.features)
+            ))
+            return cursor.lastrowid
+```
+- Adds a news item to the database, storing all analysis fields.
+
+---
+
+## d. Analysis
+- **Files:** `analyzer.py`
+- **Purpose:** Aggregates and summarizes competitor activity, trends, and feature adoption.
+
+### Example:
+```
+class CompetitorAnalyzer:
+    def generate_weekly_insights(self, days: int = 7) -> Dict:
+        # Loads data from the database
+        # Aggregates activity, features, and trends
+        # Returns a dictionary of insights for reporting
+```
+- Loads and summarizes data for the reporting period.
+
+---
+
+## e. Reporting
+- **Files:** `pdf_generator.py`, `report_generator.py`
+- **Purpose:** Generates a compact, period-accurate PDF report.
+
+### Example:
+```
+def generate_weekly_report(self, days: int = 7) -> str:
+    insights = self.analyzer.generate_weekly_insights(days=days)
+    figures = self.analyzer.generate_visualizations()
+    ...
+    self._add_cover_page(story, days)
+    self._add_executive_summary(story, insights, days)
+    ...
+    doc.build(story)
+    return output_path
+```
+- Orchestrates the report generation, calling each section in order.
+
+---
+
+# 3. Execution Flow (Step by Step)
+
+1. **User runs the script** (e.g., `python test_report.py`).
+2. **Database is initialized** and sample data is created (if testing).
+3. **DataCollector** gathers news and activity data for all competitors.
+4. **ContentAnalyzer** scores and summarizes each news item.
+5. **Database** stores all collected and analyzed data.
+6. **CompetitorAnalyzer** loads and aggregates data for the reporting period.
+7. **CompetitorReportGenerator** builds the PDF report:
+    - Adds cover page with correct date range.
+    - Adds executive summary (dynamic period).
+    - Adds compact tables and bullet points for each section.
+    - Adds a visualization and recommendations.
+8. **PDF is saved** to the output directory.
+
+---
+
+# 4. Example: End-to-End Code Snippet
+
+```
+# test_report.py
+from competition_agent.storage.models import Database
+from competition_agent.storage.analyzer import CompetitorAnalyzer
+from competition_agent.reporting.pdf_generator import CompetitorReportGenerator
+
+db = Database("competition_data.db")
+# ... create_sample_data(db) ...
+analyzer = CompetitorAnalyzer(db)
+report_gen = CompetitorReportGenerator(analyzer, "reports")
+report_path = report_gen.generate_weekly_report(days=180)
+print(f"Report generated: {report_path}")
+```
+- This script ties together all components: storage, analysis, and reporting.
+
+---
+
+# 5. Summary
+- The project is modular: each part (collection, analysis, storage, reporting) is separated for clarity and maintainability.
+- Data flows from collection → analysis → storage → aggregation → reporting.
+- The final output is a compact, actionable PDF report for any analysis period.
+
+---
+
+For any specific file or function, you can request a deeper line-by-line breakdown as needed.

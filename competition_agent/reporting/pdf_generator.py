@@ -1,5 +1,5 @@
 """
-PDF report generation with professional styling
+PDF report generation with professional styling and enhanced Hugging Face summaries
 """
 from typing import Dict, Any, List
 import os
@@ -15,6 +15,7 @@ from reportlab.platypus import (
 from reportlab.lib.enums import TA_CENTER, TA_LEFT
 import matplotlib.pyplot as plt
 import io
+from ..llm.hf_analyzer import HFAnalyzer  # Import the Hugging Face analyzer
 
 class ReportStyles:
     def __init__(self):
@@ -78,8 +79,28 @@ class CompetitorReportGenerator:
         self.output_dir = output_dir
         self.styles = ReportStyles()
         
+        # Initialize Hugging Face analyzer for enhanced summaries
+        try:
+            self.hf_analyzer = HFAnalyzer()
+            self.use_transformer = True
+            print("Initialized Hugging Face models for report generation")
+        except Exception as e:
+            print(f"Warning: Hugging Face initialization failed: {str(e)}")
+            print("Falling back to basic summaries")
+            self.use_transformer = False
+        
+    def _generate_enhanced_summary(self, articles: List[Dict], competitor_type: str) -> str:
+        """Generate an enhanced summary using Hugging Face models"""
+        if self.use_transformer:
+            try:
+                return self.hf_analyzer.generate_summary(articles, competitor_type)
+            except Exception as e:
+                print(f"Warning: Enhanced summary generation failed: {str(e)}")
+                return None
+        return None
+
     def generate_weekly_report(self, days: int = 7) -> str:
-        """Generate the competitive intelligence report
+        """Generate the competitive intelligence report with enhanced summaries
         
         Args:
             days: Number of days to look back (default: 7)
@@ -87,6 +108,17 @@ class CompetitorReportGenerator:
         # Get report data
         insights = self.analyzer.generate_weekly_insights(days=days)
         figures = self.analyzer.generate_visualizations()
+        
+        # Generate enhanced summaries if available
+        if self.use_transformer:
+            for competitor_type in ["established", "startups"]:
+                if competitor_type in insights:
+                    enhanced_summary = self._generate_enhanced_summary(
+                        insights[competitor_type].get("articles", []),
+                        competitor_type
+                    )
+                    if enhanced_summary:
+                        insights[competitor_type]["summary"] = enhanced_summary
         
         # Setup output path
         os.makedirs(self.output_dir, exist_ok=True)

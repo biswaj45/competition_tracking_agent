@@ -1,0 +1,174 @@
+COMPETITOR REPORT GENERATOR: LINE-BY-LINE EXPLANATION
+
+This document provides a detailed, line-by-line breakdown of the main logic in the PDF report generator (pdf_generator.py) for the competition tracking agent. It covers the execution flow and explains the purpose and function of each line/block.
+
+---
+
+# 1. Imports and Class Setup
+
+```
+from typing import Dict, Any, List
+import os
+from datetime import datetime, timedelta
+from reportlab.lib import colors
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib.pagesizes import letter, A4
+from reportlab.lib.units import inch
+from reportlab.platypus import (
+    SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle,
+    Image, PageBreak, ListFlowable, ListItem
+)
+from reportlab.lib.enums import TA_CENTER, TA_LEFT
+import matplotlib.pyplot as plt
+import io
+```
+- These lines import all necessary modules for PDF generation, styling, date handling, and plotting.
+
+# 2. ReportStyles Class
+
+```
+class ReportStyles:
+    def __init__(self):
+        self.styles = getSampleStyleSheet()
+        self._setup_styles()
+    def _setup_styles(self):
+        ...
+```
+- Defines a helper class to set up and store custom paragraph/table styles for the report.
+
+# 3. CompetitorReportGenerator Class
+
+```
+class CompetitorReportGenerator:
+    def __init__(self, analyzer, output_dir: str):
+        self.analyzer = analyzer
+        self.output_dir = output_dir
+        self.styles = ReportStyles()
+```
+- Initializes the report generator with an analyzer (for insights) and output directory.
+
+# 4. generate_weekly_report(self, days: int = 7)
+
+```
+def generate_weekly_report(self, days: int = 7) -> str:
+    insights = self.analyzer.generate_weekly_insights(days=days)
+    figures = self.analyzer.generate_visualizations()
+    os.makedirs(self.output_dir, exist_ok=True)
+    output_path = os.path.join(
+        self.output_dir,
+        f"competitive_intelligence_{datetime.now().strftime('%Y%m%d')}.pdf"
+    )
+    doc = SimpleDocTemplate(
+        output_path,
+        pagesize=letter,
+        rightMargin=72,
+        leftMargin=72,
+        topMargin=72,
+        bottomMargin=72
+    )
+    story = []
+    self._add_cover_page(story, days)
+    self._add_executive_summary(story, insights, days)
+    self._add_competitor_tracking(story, insights)
+    self._add_product_gap_analysis(story, insights)
+    self._add_visuals_and_trends(story, insights, figures)
+    self._add_recommendations(story, insights)
+    doc.build(story)
+    return output_path
+```
+- Gathers insights and figures for the report.
+- Sets up the output PDF path and document.
+- Calls each section-adding method in order, passing the correct arguments.
+- Builds the PDF and returns the output path.
+
+# 5. _add_cover_page(self, story: List, days: int)
+
+```
+def _add_cover_page(self, story: List, days: int) -> None:
+    story.append(Paragraph(
+        "Competitive Intelligence Report — Fraud Solutions Industry",
+        self.styles.styles['CompReportTitle']
+    ))
+    story.append(Paragraph(
+        "Tracking competitors of TransUnion Fraud Solutions",
+        self.styles.styles['CompReportSubsection']
+    ))
+    end_date = datetime.now()
+    start_date = end_date - timedelta(days=days)
+    date_range = f"{start_date.strftime('%B %d, %Y')} - {end_date.strftime('%B %d, %Y')}"
+    story.append(Spacer(1, 18))
+    story.append(Paragraph(
+        f"Analysis Period: {date_range}",
+        self.styles.styles['CompReportBody']
+    ))
+    story.append(Spacer(1, 18))
+    story.append(PageBreak())
+```
+- Adds the title, subtitle, and correct date range to the cover page.
+- Adds a page break to start the main content on the next page.
+
+# 6. _add_executive_summary(self, story: List, insights: Dict, days: int)
+
+```
+def _add_executive_summary(self, story: List, insights: Dict, days: int) -> None:
+    months = max(1, round(days / 30))
+    story.append(Paragraph(
+        f"Executive Summary ({months}-Month Analysis)",
+        self.styles.styles['CompReportSection']
+    ))
+    activity = insights['competitor_activity']
+    features = insights['feature_analysis']
+    type_summary = activity.get('type_summary', {})
+    total_mentions = sum(
+        summary.get(('total_mentions', 'sum'), 0) 
+        for summary in type_summary.values()
+    )
+    high_impact_events = sum(
+        summary.get(('high_impact', 'sum'), 0)
+        for summary in type_summary.values()
+    )
+    most_active = max(
+        type_summary.items(),
+        key=lambda x: x[1].get(('total_mentions', 'sum'), 0),
+        default=('Unknown', {})
+    )[0]
+    monthly_avg_mentions = total_mentions / months
+    monthly_avg_impacts = high_impact_events / months
+    takeaways = [
+        f"Tracked {total_mentions} competitor activities across all segments (avg. {monthly_avg_mentions:.0f}/month)",
+        f"Identified {high_impact_events} high-impact developments (avg. {monthly_avg_impacts:.1f}/month)",
+        f"Observed {features.get('feature_count', 0)} distinct product features over {months} months",
+        f"{len(features.get('new_features', []))} new features introduced in this period",
+        f"Most active segment: {most_active}"
+    ]
+    for takeaway in takeaways:
+        story.append(Paragraph(
+            f"• {takeaway}",
+            self.styles.styles['CompReportBody']
+        ))
+    story.append(Spacer(1, 10))
+```
+- Calculates the number of months, total mentions, high-impact events, and monthly averages.
+- Adds each key takeaway as a bullet point.
+
+# 7. _add_competitor_tracking(self, story: List, insights: Dict)
+
+- Adds a summary table of competitor activity by type.
+
+# 8. _add_product_gap_analysis(self, story: List, insights: Dict)
+
+- Adds a summary table of top product features and their adoption.
+
+# 9. _add_visuals_and_trends(self, story: List, insights: Dict, figures: Dict)
+
+- Adds the first available visualization (if any) to the report.
+
+# 10. _add_recommendations(self, story: List, insights: Dict)
+
+- Adds up to three actionable recommendations as bullet points.
+
+---
+
+For any section, the code uses the `story` list to append content in order. The PDF is built from this list, so the order of method calls determines the order of content in the final report.
+
+If you want a breakdown of a specific section or more detail, let me know!
