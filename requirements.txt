@@ -1,6 +1,15 @@
 requests
 beautifulsoup4
-rich
-streamlit
 python-dotenv
 pandas
+streamlit
+rich
+reportlab
+wordcloud
+matplotlib
+seaborn
+python-dateutil
+feedparser
+textblob
+nltk
+python-linkedin-v2
