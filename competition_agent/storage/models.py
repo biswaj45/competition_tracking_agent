@@ -186,8 +186,17 @@ class Database:
                 parse_dates=['first_seen_date']
             )
     
-    def get_competitor_impact_summary(self, days: int = 7) -> pd.DataFrame:
-        """Get summary of competitor impact levels"""
+    def get_competitor_impact_summary(self, days: int = 180, start_date: datetime = None) -> pd.DataFrame:
+        """
+        Get summary of competitor impact levels
+        
+        Args:
+            days: Number of days to analyze
+            start_date: Starting date for the analysis period (default: now)
+        """
+        if start_date is None:
+            start_date = datetime.now()
+            
         query = """
             SELECT 
                 c.name as competitor_name,

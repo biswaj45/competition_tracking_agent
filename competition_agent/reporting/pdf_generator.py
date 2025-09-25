@@ -78,10 +78,14 @@ class CompetitorReportGenerator:
         self.output_dir = output_dir
         self.styles = ReportStyles()
         
-    def generate_weekly_report(self) -> str:
-        """Generate the weekly competitive intelligence report"""
+    def generate_weekly_report(self, days: int = 7) -> str:
+        """Generate the competitive intelligence report
+        
+        Args:
+            days: Number of days to look back (default: 7)
+        """
         # Get report data
-        insights = self.analyzer.generate_weekly_insights(days=7)
+        insights = self.analyzer.generate_weekly_insights(days=days)
         figures = self.analyzer.generate_visualizations()
         
         # Setup output path
@@ -142,9 +146,9 @@ class CompetitorReportGenerator:
         story.append(PageBreak())
     
     def _add_executive_summary(self, story: List, insights: Dict) -> None:
-        """Add executive summary section"""
+        """Add executive summary section with 6-month trends"""
         story.append(Paragraph(
-            "Executive Summary",
+            "Executive Summary (6-Month Analysis)",
             self.styles.styles['CompReportSection']
         ))
         
@@ -170,11 +174,15 @@ class CompetitorReportGenerator:
             default=('Unknown', {})
         )[0]
         
+        # Calculate monthly averages
+        monthly_avg_mentions = total_mentions / 6  # 6 months
+        monthly_avg_impacts = high_impact_events / 6
+        
         takeaways = [
-            f"Tracked {total_mentions} competitor activities across all segments",
-            f"Identified {high_impact_events} high-impact developments",
-            f"Observed {features.get('feature_count', 0)} distinct product features",
-            f"{len(features.get('new_features', []))} new features introduced this week",
+            f"Tracked {total_mentions} competitor activities across all segments (avg. {monthly_avg_mentions:.0f}/month)",
+            f"Identified {high_impact_events} high-impact developments (avg. {monthly_avg_impacts:.1f}/month)",
+            f"Observed {features.get('feature_count', 0)} distinct product features over 6 months",
+            f"{len(features.get('new_features', []))} new features introduced in this period",
             f"Most active segment: {most_active}"
         ]
         
