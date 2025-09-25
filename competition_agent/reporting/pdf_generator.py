@@ -152,12 +152,30 @@ class CompetitorReportGenerator:
         activity = insights['competitor_activity']
         features = insights['feature_analysis']
         
+        # Process the activity summary
+        type_summary = activity.get('type_summary', {})
+        total_mentions = sum(
+            summary.get(('total_mentions', 'sum'), 0) 
+            for summary in type_summary.values()
+        )
+        high_impact_events = sum(
+            summary.get(('high_impact', 'sum'), 0)
+            for summary in type_summary.values()
+        )
+        
+        # Find most active segment
+        most_active = max(
+            type_summary.items(),
+            key=lambda x: x[1].get(('total_mentions', 'sum'), 0),
+            default=('Unknown', {})
+        )[0]
+        
         takeaways = [
-            f"Tracked {activity['total_mentions']} competitor activities across all segments",
-            f"Identified {activity['high_impact_events']} high-impact developments",
-            f"Observed {features['feature_count']} distinct product features",
-            f"{len(features['new_features'])} new features introduced this week",
-            f"Most active segment: {max(activity['type_summary'].items(), key=lambda x: x[1]['total_mentions'])[0]}"
+            f"Tracked {total_mentions} competitor activities across all segments",
+            f"Identified {high_impact_events} high-impact developments",
+            f"Observed {features.get('feature_count', 0)} distinct product features",
+            f"{len(features.get('new_features', []))} new features introduced this week",
+            f"Most active segment: {most_active}"
         ]
         
         for takeaway in takeaways:
