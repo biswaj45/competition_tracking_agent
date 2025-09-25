@@ -189,11 +189,17 @@ class CompetitorAnalyzer:
         figs['feature_timeline'] = fig
         
         # Word cloud of features
-        feature_text = ' '.join(feature_trends['feature_name'])
+        features_list = []
+        for feature in feature_trends['feature_name']:
+            if isinstance(feature, str):
+                features_list.extend(feature.split())  # Split compound features
+        
+        feature_text = ' '.join(features_list) if features_list else 'No features found'
         wordcloud = WordCloud(
             width=800,
             height=400,
-            background_color='white'
+            background_color='white',
+            min_word_length=2  # Ignore single-character words
         ).generate(feature_text)
         
         fig, ax = plt.subplots(figsize=(10, 5))
