@@ -10,7 +10,7 @@ def main():
     
     # Collect data for the last 7 days
     print("Starting data collection...")
-    results = collector.collect_all(days=7)
+    results = collector.collect_all(days=180)
     
     # Save results to a JSON file for inspection
     output_file = f"collected_data_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"

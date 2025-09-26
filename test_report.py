@@ -24,7 +24,7 @@ def create_sample_data(db: Database):
         competitor_ids[comp.name] = db.add_competitor(comp)
     
     # Add news items spanning 6 months
-    base_date = datetime(2025, 9, 25)  # Current date
+    base_date = datetime.now()  # Current date
     
     # Most recent (2 days ago)
     db.add_news(News(

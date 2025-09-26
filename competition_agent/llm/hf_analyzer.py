@@ -7,27 +7,228 @@ from transformers import (
     AutoTokenizer, 
     AutoModelForSequenceClassification,
     AutoModelForSeq2SeqLM,
-    pipeline
+    pipeline,
+    T5ForConditionalGeneration, 
+    T5Tokenizer
 )
+import numpy as np
+import logging
 
 class HFAnalyzer:
     def __init__(self):
-        """Initialize the Hugging Face models"""
-        # Initialize sentiment analysis
-        self.sentiment_tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english")
-        self.sentiment_model = AutoModelForSequenceClassification.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english")
+        self.logger = logging.getLogger(__name__)
         
-        # Initialize summarization
-        self.summary_tokenizer = AutoTokenizer.from_pretrained("t5-small")
-        self.summary_model = AutoModelForSeq2SeqLM.from_pretrained("t5-small")
+        # Set device for all models
+        use_cuda = torch.cuda.is_available()
+        self.device = 0 if use_cuda else None
+        self.torch_device = torch.device("cuda" if use_cuda else "cpu")
+        print("Device set to use", "cuda" if use_cuda else "cpu")
+
+        # Initialize the models
+        try:
+            # Initialize summarization model
+            if use_cuda:
+                self.summarizer = pipeline(
+                    "summarization",
+                    model="t5-small",
+                    device=self.device
+                )
+            else:
+                self.summarizer = pipeline(
+                    "summarization",
+                    model="t5-small"
+                )
+
+            # Initialize T5 model and tokenizer for key quote extraction
+            self.summary_tokenizer = T5Tokenizer.from_pretrained("t5-small")
+            self.summary_model = T5ForConditionalGeneration.from_pretrained("t5-small")
+            if use_cuda:
+                self.summary_model = self.summary_model.to(self.torch_device)
+
+            # Initialize sentiment analysis
+            self.sentiment_tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english")
+            self.sentiment_model = AutoModelForSequenceClassification.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english")
+            if use_cuda:
+                self.sentiment_model = self.sentiment_model.to(self.torch_device)
+            if use_cuda:
+                self.sentiment_analyzer = pipeline(
+                    "sentiment-analysis",
+                    model=self.sentiment_model,
+                    tokenizer=self.sentiment_tokenizer,
+                    device=self.device
+                )
+            else:
+                self.sentiment_analyzer = pipeline(
+                    "sentiment-analysis",
+                    model=self.sentiment_model,
+                    tokenizer=self.sentiment_tokenizer
+                )
+
+            # Initialize zero-shot classification pipeline
+            if use_cuda:
+                self.classifier = pipeline(
+                    "zero-shot-classification",
+                    model="facebook/bart-large-mnli",
+                    device=self.device
+                )
+            else:
+                self.classifier = pipeline(
+                    "zero-shot-classification",
+                    model="facebook/bart-large-mnli"
+                )
+
+        except Exception as e:
+            self.logger.error(f"Error loading models: {str(e)}")
+            self.summarizer = None
+            self.sentiment_analyzer = None
+            self.sentiment_tokenizer = None
+            self.sentiment_model = None
+
+    def _extract_competitor_mentions(self, text: str, company: str) -> List[Dict]:
+        """Extract and analyze competitor mentions in text"""
+        # Simple competitor extraction - can be enhanced with NER
+        competitors = []
+        company_lower = company.lower()
         
-        # Initialize zero-shot classification for impact and features
-        self.classifier = pipeline("zero-shot-classification", model="facebook/bart-large-mnli")
+        # Split into sentences for better context
+        sentences = text.split('.')
+        for sentence in sentences:
+            if company_lower in sentence.lower():
+                competitors.append({
+                    'competitor_name': company,
+                    'mention_context': sentence.strip(),
+                    'high_impact': False  # Will be set in analyze_content
+                })
         
-        # Set up device
-        self.device = "cuda" if torch.cuda.is_available() else "cpu"
-        self.sentiment_model.to(self.device)
-        self.summary_model.to(self.device)
+        return competitors
+
+    def analyze_content(self, text: str, company: str, keywords: List[str]) -> Dict:
+        """
+        Analyze content using transformer models
+        
+        Args:
+            text: Content text to analyze
+            company: Company name
+            keywords: Relevant keywords
+            
+        Returns:
+            Dictionary containing analysis results
+        """
+        # Initialize results
+        results = {
+            "summary": "",
+            "sentiment": {"polarity": 0.0, "subjectivity": 0.0},
+            "key_quotes": [],
+            "features": [],
+            "impact_level": "low",
+            "market_positioning": "",
+            "competitive_advantages": []
+        }
+        
+        if not text:
+            return results
+
+        # Generate summary if text is long enough
+        if len(text.split()) > 50 and self.summarizer:
+            try:
+                summary = self.summarizer(
+                    text, 
+                    max_length=130, 
+                    min_length=30, 
+                    do_sample=False
+                )
+                results["summary"] = summary[0]["summary_text"]
+            except Exception as e:
+                self.logger.warning(f"Error generating summary: {str(e)}")
+
+        # Analyze sentiment
+        if self.sentiment_analyzer:
+            try:
+                sentiment = self.sentiment_analyzer(text[:512])[0]  # Use first 512 chars for sentiment
+                results["sentiment"] = {
+                    "polarity": sentiment["score"] if sentiment["label"] == "POSITIVE" else -sentiment["score"],
+                    "subjectivity": abs(sentiment["score"] - 0.5) * 2  # Convert to 0-1 range
+                }
+            except Exception as e:
+                self.logger.warning(f"Error analyzing sentiment: {str(e)}")
+
+        # Extract key quotes (sentences containing company name or keywords)
+        sentences = text.split('.')
+        key_quotes = []
+        for sentence in sentences:
+            sentence = sentence.strip()
+            if (company.lower() in sentence.lower() or 
+                any(kw.lower() in sentence.lower() for kw in keywords)):
+                key_quotes.append(sentence)
+        results["key_quotes"] = key_quotes[:3]  # Top 3 relevant quotes
+
+        # Identify impact level based on content analysis
+        impact_score = 0
+        impact_score += len(key_quotes) * 0.2  # More relevant quotes = higher impact
+        impact_score += abs(results["sentiment"]["polarity"]) * 0.3  # Stronger sentiment = higher impact
+        impact_score += sum(1 for kw in keywords if kw.lower() in text.lower()) * 0.1  # Keyword matches
+
+        if impact_score > 0.7:
+            results["impact_level"] = "high"
+        elif impact_score > 0.3:
+            results["impact_level"] = "medium"
+
+        return results
+
+    def generate_article_summary(self, article: Dict) -> str:
+        """
+        Generate a comprehensive summary of a news article
+        
+        Args:
+            article: Dictionary containing article data
+            
+        Returns:
+            String containing the formatted summary
+        """
+        if not article.get("content"):
+            return ""
+
+        try:
+            # Get base summary
+            if self.summarizer:
+                summary = self.summarizer(
+                    article["content"],
+                    max_length=150,
+                    min_length=50,
+                    do_sample=False
+                )[0]["summary_text"]
+            else:
+                # Fallback to first few sentences
+                sentences = article["content"].split('.')[:3]
+                summary = '. '.join(sentences)
+
+            # Format the summary with metadata
+            formatted_summary = f"""
+Title: {article['title']}
+Date: {article['published_date']}
+Source: {article['source']}
+
+Summary:
+{summary}
+
+Key Points:
+"""
+            # Add key points if available
+            if "key_quotes" in article:
+                for quote in article["key_quotes"]:
+                    formatted_summary += f"- {quote}\n"
+
+            # Add sentiment if available
+            if "sentiment" in article:
+                sentiment = article["sentiment"]
+                sentiment_str = "Positive" if sentiment["polarity"] > 0 else "Negative"
+                formatted_summary += f"\nSentiment: {sentiment_str} ({abs(sentiment['polarity']):.2f})"
+
+            return formatted_summary
+
+        except Exception as e:
+            self.logger.error(f"Error generating article summary: {str(e)}")
+            return article.get("summary", "Summary generation failed")
 
     def analyze_content(self, text: str, company: str, keywords: List[str]) -> Dict:
         """
@@ -114,23 +315,30 @@ class HFAnalyzer:
 
     def _analyze_sentiment(self, text: str) -> Dict[str, float]:
         """Analyze sentiment using DistilBERT"""
-        inputs = self.sentiment_tokenizer(
-            text,
-            return_tensors="pt",
-            max_length=512,
-            truncation=True
-        ).to(self.device)
-        
-        outputs = self.sentiment_model(**inputs)
-        scores = torch.nn.functional.softmax(outputs.logits, dim=1)
-        
-        # Convert to polarity score (-1 to 1)
-        polarity = (scores[0][1] - scores[0][0]).item()
-        
-        return {
-            "polarity": polarity,
-            "subjectivity": abs(polarity)  # Use magnitude as subjectivity
-        }
+        try:
+            inputs = self.sentiment_tokenizer(
+                text,
+                padding=True,
+                truncation=True,
+                max_length=512,
+                return_tensors="pt"
+            )
+            if self.torch_device.type == "cuda":
+                inputs = {k: v.to(self.torch_device) for k, v in inputs.items()}
+            
+            outputs = self.sentiment_model(**inputs)
+            scores = torch.nn.functional.softmax(outputs.logits, dim=1)
+            
+            # Convert to polarity score (-1 to 1)
+            polarity = (scores[0][1] - scores[0][0]).item()
+            
+            return {
+                "polarity": polarity,
+                "subjectivity": abs(polarity)  # Use magnitude as subjectivity
+            }
+        except Exception as e:
+            self.logger.error(f"Error in sentiment analysis: {str(e)}")
+            return {"polarity": 0.0, "subjectivity": 0.0}
 
     def _classify_impact(self, text: str) -> str:
         """Classify impact level using zero-shot classification"""
@@ -168,22 +376,29 @@ class HFAnalyzer:
 
     def _extract_key_quotes(self, text: str) -> List[str]:
         """Extract key quotes using T5 summarization"""
-        inputs = self.summary_tokenizer.encode(
-            "extract key points: " + text,
-            return_tensors="pt",
-            max_length=512,
-            truncation=True
-        ).to(self.device)
-        
-        output_ids = self.summary_model.generate(
-            inputs,
-            max_length=150,
-            num_beams=2,
-            early_stopping=True
-        )
-        
-        quotes = self.summary_tokenizer.decode(output_ids[0], skip_special_tokens=True)
-        return quotes.split(". ")[:3]  # Return top 3 sentences
+        try:
+            inputs = self.summary_tokenizer(
+                "extract key points: " + text,
+                padding=True,
+                truncation=True,
+                max_length=512,
+                return_tensors="pt"
+            )
+            if self.torch_device.type == "cuda":
+                inputs = {k: v.to(self.torch_device) for k, v in inputs.items()}
+            
+            output_ids = self.summary_model.generate(
+                inputs["input_ids"],
+                max_length=150,
+                num_beams=2,
+                early_stopping=True
+            )
+            
+            quotes = self.summary_tokenizer.decode(output_ids[0], skip_special_tokens=True)
+            return quotes.split(". ")[:3]  # Return top 3 sentences
+        except Exception as e:
+            self.logger.error(f"Error extracting key quotes: {str(e)}")
+            return []
 
     def _analyze_positioning(self, text: str, company: str) -> str:
         """Analyze market positioning using zero-shot classification"""

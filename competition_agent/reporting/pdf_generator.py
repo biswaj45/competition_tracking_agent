@@ -88,16 +88,59 @@ class CompetitorReportGenerator:
             print(f"Warning: Hugging Face initialization failed: {str(e)}")
             print("Falling back to basic summaries")
             self.use_transformer = False
+            
+    def generate_weekly_report(self, days: int = 180) -> str:
+        """Generate the weekly competitor intelligence report"""
+        # Get insights from analyzer
+        insights = self.analyzer.generate_weekly_insights(days)
         
-    def _generate_enhanced_summary(self, articles: List[Dict], competitor_type: str) -> str:
-        """Generate an enhanced summary using Hugging Face models"""
-        if self.use_transformer:
-            try:
-                return self.hf_analyzer.generate_summary(articles, competitor_type)
-            except Exception as e:
-                print(f"Warning: Enhanced summary generation failed: {str(e)}")
-                return None
-        return None
+        # Set up the document
+        output_file = os.path.join(
+            self.output_dir,
+            f"competitive_intelligence_{datetime.now().strftime('%Y%m%d')}.pdf"
+        )
+        
+        doc = SimpleDocTemplate(output_file, pagesize=letter)
+        story = []
+        
+        # Add title
+        story.append(Paragraph(
+            f"Competitive Intelligence Report<br/>Week of {datetime.now().strftime('%B %d, %Y')}",
+            self.styles.styles['CompReportTitle']
+        ))
+        story.append(Spacer(1, 20))
+        
+        # Add executive summary
+        story.append(Paragraph("Executive Summary (6-Month Analysis)", self.styles.styles['CompReportSection']))
+        bullets = self._generate_executive_summary(insights)
+        for bullet in bullets:
+            story.append(Paragraph(bullet, self.styles.styles['CompReportBody']))
+        story.append(Spacer(1, 20))
+        
+        # Build and save the document
+        doc.build(story)
+        return output_file
+        
+    def _generate_executive_summary(self, insights: Dict) -> List[str]:
+        """Generate executive summary bullet points"""
+        activity = insights.get("competitor_activity", {})
+        feature_analysis = insights.get("feature_analysis", {})
+        
+        bullets = [
+            f"• Tracked {int(activity.get('total_activities', 0))} competitor activities across all segments "
+            f"(avg. {activity.get('monthly_average', 0):.1f}/month)",
+            
+            f"• Identified {int(activity.get('high_impact_total', 0))} high-impact developments "
+            f"(avg. {activity.get('high_impact_monthly', 0):.1f}/month)",
+            
+            f"• {feature_analysis.get('num_features', 0)} distinct product features observed over 6 months",
+            
+            f"• {feature_analysis.get('new_features', 0)} new features introduced in this period",
+            
+            f"• Most active segment: {activity.get('most_active_segment', 'Unknown')}"
+        ]
+        
+        return bullets
 
     def generate_weekly_report(self, days: int = 7) -> str:
         """Generate the competitive intelligence report with enhanced summaries
@@ -200,7 +243,7 @@ class CompetitorReportGenerator:
             f"Tracked {total_mentions} competitor activities across all segments (avg. {monthly_avg_mentions:.0f}/month)",
             f"Identified {high_impact_events} high-impact developments (avg. {monthly_avg_impacts:.1f}/month)",
             f"Observed {features.get('feature_count', 0)} distinct product features over {months} months",
-            f"{len(features.get('new_features', []))} new features introduced in this period",
+            f"{features.get('new_feature_count', 0)} new features introduced in this period",
             f"Most active segment: {most_active}"
         ]
         for takeaway in takeaways:
@@ -241,7 +284,8 @@ class CompetitorReportGenerator:
         ))
         
         # Feature comparison table
-        feature_data = insights['feature_analysis']['top_features']
+        feature_analysis = insights.get('feature_analysis', {})
+        feature_data = feature_analysis.get('features', {})
         if feature_data:
             table_data = [['Feature', 'Adoption', 'Present in Segments']]
             for feature, info in feature_data.items():
@@ -293,13 +337,16 @@ class CompetitorReportGenerator:
         ))
         
         # Generate recommendations based on insights
-        feature_gaps = insights['feature_analysis'].get('new_features', [])
-        competitor_activity = insights['competitor_activity']
+        feature_analysis = insights.get('feature_analysis', {})
+        competitor_activity = insights.get('competitor_activity', {})
+        
+        # Get feature names from analysis
+        feature_names = list(feature_analysis.get('features', {}).keys())
         
         recommendations = [
             "Product Development:",
             "• Evaluate adoption of emerging features: " + 
-            ", ".join(f['feature_name'] for f in feature_gaps[:3]),
+            (", ".join(feature_names[:3]) if feature_names else "No new features identified"),
             "\nMarket Positioning:",
             "• Focus on high-activity segments: " +
             ", ".join(
@@ -323,10 +370,18 @@ class CompetitorReportGenerator:
     
     def _add_competitor_analysis(self, story: List, activity: Dict, comp_type: str) -> None:
         """Add analysis for a specific competitor type"""
-        relevant_competitors = [
-            c for c in activity['most_active_competitors']
-            if c['competitor_name'].lower() in comp_type
-        ]
+        # Get competitor mentions from type summary if available
+        type_summary = activity.get('type_summary', {})
+        relevant_competitors = []
+        
+        # Extract competitor data from type summary
+        for comp_name, stats in type_summary.items():
+            if comp_name.lower() in comp_type:
+                relevant_competitors.append({
+                    'competitor_name': comp_name,
+                    'total_mentions': stats.get(('total_mentions', 'sum'), 0),
+                    'high_impact': stats.get(('high_impact', 'sum'), 0)
+                })
         
         if relevant_competitors:
             table_data = [['Competitor', 'Mentions', 'High Impact Events']]

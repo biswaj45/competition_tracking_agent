@@ -20,11 +20,13 @@ class ContentAnalyzer:
         try:
             self.hf_analyzer = HFAnalyzer()
             self.use_transformer = True
+            self.llm_analyzer = self.hf_analyzer  # Add this line to fix the attribute error
             print("Initialized Hugging Face models successfully")
         except Exception as e:
             print(f"Warning: Hugging Face initialization failed: {str(e)}")
             print("Falling back to basic analysis")
             self.use_transformer = False
+            self.llm_analyzer = None
             
     def analyze_content(self, text: str, company: str, keywords: List[str]) -> Dict:
         """
@@ -44,9 +46,9 @@ class ContentAnalyzer:
         # Clean and normalize text
         clean_text = self._clean_text(text)
         
-        if self.use_llm:
-            # Use LLM for enhanced analysis
-            llm_analysis = self.llm_analyzer.analyze_content(clean_text, company, keywords)
+        if self.use_transformer:
+            # Use transformer models for enhanced analysis
+            llm_analysis = self.hf_analyzer.analyze_content(clean_text, company, keywords)
             
             # Calculate relevance score (combine LLM and traditional methods)
             basic_relevance = self._calculate_relevance(clean_text, company, keywords)
