@@ -1,0 +1,16 @@
+Title: OpenAI is the world’s most valuable private company after private stock sale - TechCrunch
+Company: OpenAI
+Source: TechCrunch
+URL: https://techcrunch.com/2025/10/02/openai-is-the-worlds-most-valuable-private-company-after-private-stock-sale/
+
+OpenAI has sold $6.6 billion in shares held by current and former employees, according to a new report from Bloomberg. The sale pushed OpenAI’s total valuation to $500 billion, the highest ever achieved by a privately held company. Purchasers included SoftBank, Dragoneer Investment Group, Thrive Capital, MGX, and T. Rowe Price, the report said.
+
+The sale was not a conventional funding round, as the cash went to individuals holding shares or options in OpenAI rather than the company’s own coffers. Still, it’s a powerful retention tool for the company, which has faced significant pressure from Meta’s newly revitalized AI lab. This summer, Meta poached at least seven top engineers from OpenAI, often luring them away with multimillion-dollar signing bonuses.
+
+OpenAI’s most recent funding round came in August, when it completed a $40 billion fundraise at a $300 billion valuation. SoftBank, Thrive, T. Rowe Price, and Dragoneer were also investors in that round, as well as private equity firms like Blackstone and TPG, and major venture capitalists like Founders Fund, Sequoia Capital, and Andreessen Horowitz.
+
+The sale is also a reminder of OpenAI’s ability to raise cash as needed — a particularly important resource given the company’s ambitious infrastructure plans. OpenAI has committed to spending $300 billion on Oracle Cloud Services over the next five years, a sum that vastly outstrips its current revenue or reserves. However, the powerful momentum of the company’s fundraising suggests it’s not as outlandish as standard arithmetic would indicate. In September, Nvidia announced a plan to invest $100 billion in OpenAI as part of a strategic infrastructure partnership.
+
+The new sale comes just weeks after a non-binding agreement between OpenAI and Microsoft, which many saw as paving the way for OpenAI’s conversion into a for-profit entity. But OpenAI’s conversion has not yet been confirmed in court, and the new sales could cause significant complications if the conversion fails to proceed as planned.
+
+OpenAI continues to develop and launch products at a blistering pace, releasing its latest Sora 2 video model and accompanying social media feed earlier this week. The company reported $4.3 billion in revenue in the first half of 2025, while burning through $2.5 billion in cash.

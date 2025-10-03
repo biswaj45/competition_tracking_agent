@@ -1,0 +1,30 @@
+Title: Are AI agents finally good enough? - The Verge
+Company: Anthropic
+Source: The Verge
+URL: https://www.theverge.com/podcast/789772/ai-agents-anthropic-claude-sonnet-autonomous-coding
+
+is The Verge’s senior AI reporter. An AI beat reporter for more than five years, her work has also appeared in CNBC, MIT Technology Review, Wired UK, and other outlets.
+
+Posts from this author will be added to your daily email digest and your homepage feed.
+
+Hey there, and welcome to Decoder! I’m Hayden Field, senior AI reporter at The Verge and your Thursday episode guest host. I’ll be subbing in for Nilay for a couple more episodes, and I’m excited to keep diving into the good, the bad, and the questionable in the AI industry.
+
+Today, I’m talking with David Hershey, who leads the applied AI team at Anthropic. David works with startups to help them figure out how to best apply Anthropic’s tech, plus testing new AI models to understand their limits.
+
+I wanted to have David on because Anthropic released a new AI model called Claude Sonnet 4.5 earlier this week, and it’s been making waves. (For reference, Claude is to Anthropic what ChatGPT is to OpenAI.)
+
+The new model, Sonnet 4.5, is being billed as a big breakthrough in autonomous, agentic AI, especially for coding purposes. These types of AI products can, in theory, be given complex tasks and then go off and complete them over the course of many hours or even multiple days. Anthropic says this particular model can run for up to 30 hours straight without any human intervention — all while working on a singular task, like building a software application from scratch.
+
+For the last year or so, companies like Anthropic, Microsoft, OpenAI, and more have been promising that this agentic technology would be the next phase of AI, the next big hype-filled thing that comes after general-purpose chatbots. They say it could really unlock generative AI’s potential, and it’s true that they’ve made some strides.
+
+But as we’ve seen so far, agents aren’t quite there yet, and they have a ways to go. Most of us are not, in fact, sending agents off on the internet to do our bidding, and we’re certainly not giving them tasks that might take 12, 24, or even 30–plus hours of autonomous work without human handholding. At least, not yet.
+
+At the same time, many companies are looking at agents as the breakthrough that’s supposed to unlock huge productivity gains from AI models, including the opportunity to use them to replace or augment human labor.
+
+So I wanted to sit down with David, who spends a lot of time testing out what modes like Claude Sonnet 4.5 can and can’t do, to ask him where we are on this promise of AI agents. I wanted to talk about what these types of products are good at from a consumer standpoint, beyond programming purposes, and also what the path forward looks like as agentic technology progresses.
+
+If you’d like to read more on what we talked about in this episode, check out the links below:
+
+Questions or comments about this episode? Hit us up at decoder@theverge.com. We really do read every email!
+
+Decoder with Nilay Patel A podcast from The Verge about big ideas and other problems. SUBSCRIBE NOW!

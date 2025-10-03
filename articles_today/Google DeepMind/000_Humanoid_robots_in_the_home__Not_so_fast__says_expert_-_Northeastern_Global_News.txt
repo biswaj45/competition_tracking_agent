@@ -1,0 +1,38 @@
+Title: Humanoid robots in the home? Not so fast, says expert - Northeastern Global News
+Company: Google DeepMind
+Source: Northeastern Global News
+URL: https://news.northeastern.edu/2025/10/02/humanoid-robots-at-home-deepmind-google/
+
+Humanoid robots in the home? Not so fast, says expert Google DeepMind’s latest AI models are impressive, but there’s still a long way to go for humanoids, says Northeastern expert Apptronik’s Apollo was featured in a series of videos showcasing Google DeepMind’s AI models. (Photo by Mike Jordan/SXSW Conference & Festivals via Getty Images
+
+It’s been a goal for as long as humanoids have been a subject of popular imagination — a general-purpose robot that can do rote tasks like fold laundry or sort recycling simply by being asked.
+
+Last week, Google DeepMind, Alphabet’s AI lab, made a buzz in the space by showcasing a humanoid robot seemingly doing just that.
+
+The company published a blog post and a series of videos of Apptronik’s humanoid robot Apollo folding clothes, sorting items into bins, and even putting items into a person’s bag — all through natural language commands.
+
+It was part of a showcase of the company’s latest AI models — Gemini Robotics 1.5 and Gemini Robotics-ER 1.5. The goal of the announcement was to illustrate how large language models can be used to assist physical robots to “perceive, plan [and] think” to complete “multi-step tasks,” according to the company.
+
+It’s important to view DeepMind’s latest news with a bit of skepticism, particularly around claims of robots having the ability to “think,” says Ravinder Dahiya, a Northeastern professor of electrical and computer engineering who recently co-authored a comprehensive report on how AI could be integrated into robots.
+
+Ravinder Dahiya, a Northeastern professor of electrical and computer engineering, is an expert on robotic touch sensing. Photo by Matthew Modoono/Northeastern University
+
+Gemini Robotics 1.5 and Gemini Robotics-ER 1.5 are known as vision-language models, meaning they utilize vision sensors and image and language data for much of their analysis of the outside world, explains Dahiya.
+
+Gemini Robotics 1.5 works by “turning visual information and instructions into motor command.” While Gemini Robotics-ER 1.5 “specializes in understanding physical spaces, planning, and making logistical decisions within its surroundings,” according to Google DeepMind.
+
+While it all may seem like magic on the surface, it’s all based on a very defined set of rules. The robot is not actually thinking independently. It’s all backed by heaps of high-quality training data and structured scenario planning and algorithms, Dahiya says.
+
+“It becomes easy to iterate visual and language models in this case because there is a good amount of data,” he says. “Vision in AI is nothing new. It’s been around for a long time.”
+
+What is novel is that the DeepMind team has been able to integrate that technology with large language models, allowing users to ask the robot to do tasks using simple language, he says.
+
+That’s impressive and “a step in the right direction,” Dahiya says, but we are still far away from having humanoid robots with the sensing or thinking capabilities in parity with humans, he notes.
+
+For example, Dahiya and other researchers are in the process of developing sensing technologies that allow robots to have a sense of touch and tactile feedback. Dahiya, in particular, is working on creating electronic robot skins.
+
+Unlike vision data, there isn’t nearly as much training data for that type of sensing, he highlights, which is important in applications involving the manipulation of soft and hard objects.
+
+But just as one example. We also have a long way to go in giving robots the ability to register pain and smell, he adds.
+
+“For uncertain environments, you need to rely on all sensor modalities, not just vision,” he says.

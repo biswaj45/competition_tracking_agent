@@ -1,0 +1,66 @@
+Title: OpenAI's SaaS era has begun. Here are the companies in the firing line. - Business Insider
+Company: OpenAI
+Source: Business Insider
+URL: https://www.businessinsider.com/openai-saas-attack-hubspot-salesforce-docusign-zoominfo-2025-9
+
+This story is available exclusively to Business Insider subscribers. Become an Insider and start reading now.
+
+A barrage of blog posts by OpenAI was seen by the software industry as a shot across the bow.
+
+With its own AI-powered sales, support, and contract tools, the company could go from powering the software-as-a-service (SaaS) market to competing with it.
+
+For years, OpenAI has provided AI infrastructure, selling tools that software players could build on. Now it's embedding AI directly into its everyday internal processes, such as sales, support, and document analysis. That makes it both a partner and a potential rival — a dynamic that could reshape the software landscape dominated by giants like Salesforce.
+
+Software rivals are already taking a hit on the stock market. HubSpot shares plunged 10% on Tuesday, while DocuSign slumped 12% and ZoomInfo fell 6%. Salesforce fell more than 3%, leaving it down 28% for the year so far.
+
+From model maker to app builder
+
+Giancarlo Lionetti, OpenAI's chief commercial officer, framed the shift in a new "OpenAI on OpenAI" series posted on the startup's website on Monday, where the company showcased software that it actually uses to run its own operations:
+
+Inbound Sales Assistant: Answers questions from prospective customers in real time and routes qualified leads to salespeople.
+
+GTM Assistant: A Slack-based companion that prepares sales calls, pulls customer histories, and answers product questions instantly.
+
+DocuGPT: Parses contracts into searchable data, flagging unusual terms for finance teams.
+
+Research and Support Agents: Handle support tickets and improve service quality.
+
+Software vendors in the crosshairs
+
+OpenAI has not launched these tools as publicly available products. However, each of these applications could pose a threat to established software vendors, according to analysts.
+
+Related stories Business Insider tells the innovative stories you want to know Business Insider tells the innovative stories you want to know
+
+"These blog posts could be a precursor to OpenAI launching new SaaS products to sell within its ChatGPT Enterprise platform," Derrick Wood, a tech analyst at TD Cowen, wrote in a note to investors on Wednesday.
+
+Wall Street has already been on edge about this, after OpenAI CEO Sam Altman tweeted "entering the fast fashion era of SaaS very soon" in August. CFO Sarah Friar also didn't hold back when asked about this at a recent investor conference.
+
+"Why wouldn't I code the kind of software that is exactly what OpenAI needs? Not what Goldman needs or any other company needs," she said. "I think that is going to change the whole face of how software is developed."
+
+RBC analysts wrote in a note to investors on Tuesday that they see a "competitive overhang" for certain software companies, citing product overlap with software providers that help manage customer relationships and contracts — the core offering of Salesforce.
+
+They highlighted which companies could be most exposed if OpenAI releases some of these tools as products. Some customers may not want to pay extra for such features if OpenAI's products can do the same thing.
+
+HubSpot and Salesforce: They build software to manage inbound sales and customer relationships, and OpenAI just built a rival for itself.
+
+ZoomInfo: Its sales and marketing tools for lead intelligence and routing overlap heavily with OpenAI's internal assistants.
+
+DocuSign: OpenAI's internal DocuGPT tool could threaten to erode the value of DocuSign's contract analysis features.
+
+Threat or opportunity?
+
+For software companies, partnering with OpenAI could boost sales conversion rates and speed up deal closings. Competing head-on could mean less revenue.
+
+Pricing would be pivotal. If OpenAI licenses its agents per seat, vendors like HubSpot or DocuSign could feel real pressure. If it leans on charging by usage, integration may be the smarter path, according to analysts.
+
+Either way, the message is clear: AI is no longer just an add-on feature. It's the new foundation for sales, support, and finance.
+
+OpenAI may not release these tools as software products. And the startup insists this is about more human expertise, rather than replacing it. By incorporating the expertise of top salespeople or contract lawyers into AI systems, companies can spread best practices across their teams.
+
+OpenAI said its in-house technology saved its employees time so they could spend more time with customers. The startup's support reps shifted from processing tickets to designing systems. Finance teams slashed contract review times.
+
+The company is betting that this blend of craft and code will define the next frontier of enterprise software.
+
+OpenAI is no longer just a supplier of AI. It's now a potential SaaS competitor in its own right.
+
+Update, Oct. 2, 2025 — This story was updated to make clear that OpenAI has not released its internal AI workplace tools as publicly available software products.

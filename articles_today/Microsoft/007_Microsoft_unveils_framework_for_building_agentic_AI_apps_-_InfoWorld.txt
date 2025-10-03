@@ -1,0 +1,10 @@
+Title: Microsoft unveils framework for building agentic AI apps - InfoWorld
+Company: Microsoft
+Source: InfoWorld
+URL: https://www.infoworld.com/article/4067500/microsoft-unveils-framework-for-building-agentic-ai-apps.html
+
+Microsoft has introduced the Microsoft Agent Framework, an open-source SDK and runtime for building, orchestrating, and deploying AI agents and multi-agent workflows, with full framework support for .NET and Python.
+
+Introduced October 1 and available on GitHub, the Agent Framework is designed to let developers build everything from simple chat agents to complex multi-agent workflows with graph-based orchestration, Microsoft said. Developers can experiment locally with the framework and then deploy to the Azure AI Foundry for AI apps, with observability, durability, and compliance built-in. Multi-agent systems can be built connecting Azure AI Foundry, Microsoft 365 Copilot, and other agent platforms.
+
+Microsoft said that the Microsoft Agent Framework brings together and extends the ideas from the Semantic Kernel and AutoGen projects, and that developers currently using these projects will find the transition to the Agent Framework straightforward. The Agent Framework supports the Model Context Protocol (MCP) and the Agent2Agent (A2A) protocol and features an OpenAPI-first design and cloud-agnostic runtime. As a result, the Agent Framework enables the following capabilities, according to Microsoft:

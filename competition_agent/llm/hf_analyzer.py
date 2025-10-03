@@ -243,22 +243,26 @@ Key Points:
             Dictionary containing analysis results
         """
         try:
-            # Analyze sentiment
+            # Truncate text to a reasonable length
+            text = text[:1000]  # Limit to first 1000 characters for faster processing
+            print(f"\nAnalyzing content for {company}...")
+            
+            print("1/6 Analyzing sentiment...")
             sentiment = self._analyze_sentiment(text)
             
-            # Classify impact level
+            print("2/6 Classifying impact...")
             impact_level = self._classify_impact(text)
             
-            # Extract features using zero-shot classification
+            print("3/6 Extracting features...")
             features = self._extract_features(text)
             
-            # Extract key quotes through summarization
+            print("4/6 Extracting key quotes...")
             key_quotes = self._extract_key_quotes(text)
             
-            # Analyze market positioning
+            print("5/6 Analyzing market positioning...")
             market_positioning = self._analyze_positioning(text, company)
             
-            # Identify competitive advantages
+            print("6/6 Identifying competitive advantages...")
             competitive_advantages = self._identify_advantages(text, company)
             
             return {

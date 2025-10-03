@@ -1,0 +1,40 @@
+Title: OpenAI's Sora 2 is putting safety and censorship to the test with stunningly real videos - CNBC
+Company: OpenAI
+Source: CNBC
+URL: https://www.cnbc.com/2025/10/02/openai-invite-code-sora-2-censorship.html
+
+Fresh off a $6.6 billion share sale that made it the world's most valuable private company, OpenAI's TikTok-style video app, powered by its new artificial intelligence model, Sora 2, is going viral.
+
+Despite the gated release that requires an invite code, the video creation tool has already shot to the top of Apple 's App Store and sparked a wave of deepfakes, including a viral clip of CEO Sam Altman shoplifting GPUs.
+
+Internally, the rollout has reignited a long-running debate inside OpenAI about how to balance safety with creative freedom.
+
+A person familiar with internal strategy at the company said leadership views strict guardrails as essential, but also worries about stifling creativity or being perceived as censoring too much.
+
+That tension remains unresolved.
+
+OpenAI's culture has long favored speed, often shipping new tools ahead of rivals and letting the public adapt in real time.
+
+One former employee, who asked not to be named to discuss internal matters, told CNBC that during their tenure, OpenAI leadership had a pattern of prioritizing fast launches. That strategy was on full display after China's DeepSeek released a powerful model at the end of last year that was cheaper and faster to build than anything out of Silicon Valley.
+
+OpenAI responded within weeks, debuting two new models in what was widely viewed as a defensive move to preserve its lead.
+
+But OpenAI has a key advantage: Its growing institutional muscle.
+
+Once a scrappy research lab in San Francisco's Mission District, the company has since become more structured, enabling it to spin up cross-functional teams more quickly and accelerate the development and deployment cycles for products like Sora.
+
+OpenAI said Sora includes multiple layers of safeguards meant to prevent unsafe content from being generated, using prompt filtering and output moderation across video frames and audio transcripts. It bans explicit content, terrorist propaganda, and material promoting self-harm. The app also uses watermarks and bans likeness impersonation.
+
+But some users have already found ways to skirt those protections.
+
+Sora 2, the AI model powering OpenAI's app, is a sharp improvement over the first version. The new system generates longer, more coherent clips that look strikingly real.
+
+Multiple viral videos feature Altman after he granted permission for his likeness to be used on the platform, while others depict popular cartoon characters like Pikachu and SpongeBob SquarePants in unsettling roles.
+
+The content has fueled criticism that OpenAI is once again moving faster than its own guardrails. Its use of copyrighted material — unless rights holders opt out — is consistent with the company's current policy, though that approach is being challenged in court.
+
+Altman has brushed off concerns, saying in a post on X that Sora is as much about transparency — showing the public what the technology can do — as it is about building commercial momentum to fund OpenAI's broader ambitions around artificial general intelligence.
+
+The launch comes amid intensifying competition. Meta rolled out Vibes last week, a new short-form AI video feed inside its Meta AI app. Google has Veo 3, while ByteDance and Alibaba have also debuted rival systems.
+
+OpenAI, meanwhile, just committed to fresh spending of $850 billion, deepening its push into infrastructure and next-gen models.

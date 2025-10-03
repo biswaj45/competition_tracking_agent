@@ -1,0 +1,44 @@
+Title: Is There Still Room For Microsoft Stock To Grow? - Trefis
+Company: Microsoft
+Source: Trefis
+URL: https://www.trefis.com/stock/msft/articles/576479/is-there-still-room-for-microsoft-stock-to-grow/2025-10-02
+
+We love companies that produce cash. Lots of cash. How about 2% of market capitalization? Microsoft’s stock is worth $3.9 trillion and produced $71.6 billion of free cash flow in fiscal 2025, about 1.8% of market capitalization. On a per-share basis, that’s $9.60 of free cash flow for a $520 stock. What’s not to love? This cash piles up on the balance sheet, can be reinvested, and fuels buybacks. Microsoft’s operating cash flow margin sits at 48.3%, generating $136 billion from $282 billion in revenue. Net income? A staggering $102 billion – a roughly 36% net margin, marking the first time Microsoft crossed the $100 billion profit threshold. The balance sheet is fortress-like, with $95 billion in cash versus $61 billion in debt, representing a strong net cash position. At the same time, Microsoft returned $37 billion to shareholders through dividends and buybacks in the last twelve months alone. See – Why Microsoft Stock Is A Shareholder’s Paradise? – for more details.
+
+While Microsoft stock has had a strong year, surging 24% and outpacing the NASDAQ’s 18% gain, the key question now is: Is there still room for Microsoft stock to grow?
+
+A deep dive into the company’s fundamentals suggests the answer is yes, as growth is rapidly accelerating.
+
+Microsoft reported robust results for fiscal year 2025 with revenue and operating income rising in mid to high teens. A major driver of this performance is the Intelligent Cloud segment. Azure alone surpassed $75 billion in annual revenue, growing at a remarkable 34% year-over-year. Artificial Intelligence (AI) services are a significant tailwind, contributing 19 percentage points of that growth.
+
+The company is fueled by several massive, long-term growth drivers—chief among them, the proliferation of its AI offerings. These factors are expected to propel the stock to much higher levels, potentially doubling from current levels to levels past $1,000. We will explore these specific growth drivers in more detail. That being said, if you seek an upside with less volatility than holding an individual stock like Microsoft, consider the High Quality Portfolio. It has comfortably outperformed its benchmark—a combination of the S&P 500, Russell, and S&P MidCap indexes—and has achieved returns exceeding 91% since its inception. Why is that? As a group, HQ Portfolio stocks provided better returns with less risk versus the benchmark index; less of a roller-coaster ride, as evident in HQ Portfolio performance metrics. Separately, see – What’s Next For CoreWeave Stock?
+
+Several Big Growth Drivers
+
+AI and Cloud Dominance: Microsoft is investing an estimated $70 billion in AI infrastructure during fiscal 2026, building the world’s most powerful AI datacenters across 400+ locations globally. Azure revenue reached $75 billion in fiscal 2025 with 34% growth, driven by both traditional cloud migrations and explosive AI workload adoption. Microsoft Cloud revenue hit $186 billion annually, up 27%, with the contribution of AI services on the rise. The company’s integrated AI stack – from infrastructure to applications like Copilot – is already boosting revenue growth, with broader enterprise adoption expected in the coming years. Enterprise Software and Productivity: The Productivity and Business Processes segment generated $116.5 billion in fiscal 2025, growing 16%. Office 365 commercial revenue increased 16%, while LinkedIn revenue grew 8%. Dynamics 365 surged 19% as customers migrate to cloud-based business applications. Microsoft is benefiting from higher pricing for its products by integrating AI-enhanced features that seamlessly improve existing user workflows. This will help in revenue acceleration. Gaming and Consumer Technology: Despite Xbox hardware declining 22%, Xbox content and services revenue jumped 13%, demonstrating the shift toward higher-margin subscription and cloud gaming models. The More Personal Computing segment contributed $54 billion in fiscal 2025, with Windows licenses and search advertising showing steady growth driven by AI integration across consumer products.
+
+How Microsoft Stock Reaches $1,000
+
+Let’s run the numbers. Microsoft generated $281.7 billion in revenue in fiscal 2025, with accelerating growth momentum. With AI adoption driving sustained 17% annual revenue growth and margin expansion from operational leverage, sales can reach $450 billion by 2028. Microsoft’s operating margins are projected to expand to 50% as high-margin AI services scale and operational efficiency improves. That translates to roughly $225 billion in operating income, or about $180 billion in net income after taxes.
+
+With continued share repurchases reducing the float, share count could trend toward 7.2 billion shares. That would translate into EPS of about $25 per share by 2028. Now let’s consider valuation. While Microsoft currently trades at 38x trailing earnings (based on fiscal 2025 results), its AI monetization story supports a premium valuation. Given Microsoft’s strong growth, superior margins, and solid cash flow generation, we do not foresee any significant compression in multiples over the next three years.
+
+Implied Share Price:
+
+Even a conservative multiple of 30x—reflecting a mature AI growth story while maintaining reasonable valuation discipline—implies a $750 share price.
+
+If the company maintains its current multiple of around 40x, the implied share price would exceed $1,000, representing a 2x growth from current levels.
+
+What Are The Risks?
+
+Despite Microsoft’s promising outlook, potential risks could hinder the stock from doubling. The most significant concern is the normalization of AI spending, where businesses become more cautious about starting new Azure projects, suggesting the current pace of investment may not be indefinitely sustainable. Furthermore, increased competition from Google, Amazon, and emerging players could pressure Microsoft’s AI pricing power and market share gains.
+
+See, investing in a single stock without comprehensive analysis can be risky. Consider the Trefis Reinforced Value (RV) Portfolio, which has outperformed its all-cap stocks benchmark (combination of the S&P 500, S&P mid-cap, and Russell 2000 benchmark indices) to produce strong returns for investors. Why is that? The quarterly rebalanced mix of large-, mid-, and small-cap RV Portfolio stocks provided a responsive way to make the most of upbeat market conditions while limiting losses when markets head south, as detailed in RV Portfolio performance metrics.
+
+The Bottom Line
+
+Microsoft’s investment case is compelling. Record cash generation of $72 billion and an impregnable balance sheet fund both aggressive AI infrastructure investments and consistent shareholder returns, while diversified exposure across cloud, AI, enterprise software, and gaming reduces risk and positions the company for sustained long-term growth. The projected $70 billion AI infrastructure investment creates competitive advantages that magnify market share gains, with additional upside potential from AI-driven margin expansion while maintaining accelerating growth. That said, investors should carefully weigh the risks before investing in Microsoft.
+
+Invest with Trefis Market-Beating Portfolios
+
+See all Trefis Price Estimates

@@ -8,9 +8,9 @@ from competition_agent.data_collection.collector import DataCollector
 def main():
     collector = DataCollector()
     
-    # Collect data for the last 7 days
+    # Collect data for the last 1 day
     print("Starting data collection...")
-    results = collector.collect_all(days=180)
+    results = collector.collect_all(days=1)
     
     # Save results to a JSON file for inspection
     output_file = f"collected_data_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"

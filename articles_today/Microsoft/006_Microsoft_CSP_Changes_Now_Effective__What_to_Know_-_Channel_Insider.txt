@@ -1,0 +1,66 @@
+Title: Microsoft CSP Changes Now Effective: What to Know - Channel Insider
+Company: Microsoft
+Source: Channel Insider
+URL: https://www.channelinsider.com/channel-business/channel-analysis/microsoft-csp-october-2025-changes/
+
+Channel Insider content and product recommendations are editorially independent. We may make money when you click on links to our partners. Learn More
+
+Microsoft’s overhaul of its Cloud Solution Provider (CSP) program is now live, reshaping who can sell through each partner route and how orders and customer agreements must be handled. The changes combine revised revenue thresholds, stricter Partner of Record (POR) validation, updated Microsoft Customer Agreement (MCA) attestation, and enhanced security expectations.
+
+What to know about the new CSP structure, rules, and more
+
+The shift, first announced in May, is designed to move the channel from ad-hoc enrollments to a smaller set of partners with verified operational and security capabilities. The changes will also prompt a practical reassessment of how MSPs and distributors route deals and plan multi-year offers. The list below offers a quick summary of the changes:
+
+Direct-bill partners: must show $1,000,000 USD trailing-12-month (TTM) CSP revenue at the Partner Global Account (PGA) level; annual reassessments begin Oct. 1, 2025.
+
+must show trailing-12-month (TTM) CSP revenue at the Partner Global Account (PGA) level; annual reassessments begin Oct. 1, 2025. Distributors (indirect providers): nomination and business vetting are required, plus $30,000,000 USD TTM billed CSP revenue per authorized region .
+
+nomination and business vetting are required, plus TTM billed CSP revenue . Indirect resellers (PLA-level): a $1,000 USD TTM minimum at the reseller tenant (PLA) level; failure triggers remediation/deauthorization pathways.
+
+a TTM minimum at the reseller tenant (PLA) level; failure triggers remediation/deauthorization pathways. Solutions-partner and incentive alignment: Incentive eligibility and certain program benefits will be tied to Solutions Partner designations and capability scores, with the new revenue/security thresholds taking effect on October 1, 2025.
+
+“For Direct CSPs specifically, the margins aren’t what they used to be with these new requirements. The level of effort and investment now required to maintain Direct status has significantly increased, offering fewer advantages than it once did. We’re making sure these partners fully understand what staying Direct now demands, so they can make informed decisions about what’s best for their business,” said Alexandre Laflamme, Sherweb’s programs and sales incentives manager.
+
+“While Indirect CSPs face fewer requirements, they still must earn 25 Partner Capability Score (PCS) points to remain eligible for incentives—which can be achieved through sales performance or certifications. We’re working with these partners to ensure they’re completing those certifications and reaching those sales requirements to maximize their incentives,” Laflamme continued.
+
+API and UI checks added as Microsoft pushes partners towards the future
+
+The program enforces several operational changes that directly affect sales workflows. Effective as of September 1, Partner Location Account (PLA) API and UI checks prevent distributors from assigning POR to resellers who are not authorized or compliant, which will surface mapping and authorization errors at the time of order.
+
+Meanwhile, Microsoft will block net-new customer orders on Oct. 7, 2025, unless the customer has accepted the MCA directly or the partner attests via a new enhanced attestation API; the existing API and Partner Center UX attestation paths will be retired, and the MCA bulk-attestation tool will be phased to read-only and then retired in January 2026.
+
+Those changes mean partners must either integrate the new API or adopt a customer-facing acceptance step to avoid order failures.
+
+Microsoft will run automated assessments that review billing, provisioning, compliance, support, and security as part of the FY26 authorization process. That elevates partner operational hygiene from recommended best practice to a gating condition for selling.
+
+Voices from the channel: Sherweb pledges to help partners adjust as needed
+
+Distributors and other groups have stepped up to walk Microsoft partners through the changes. Sherweb launched a program and a consulting practice recently to help its MSPs and reseller partners make the most out of the program.
+
+“The level of expertise that Sherweb brings is unmatched. I’m constantly amazed at how intimately they understand the Microsoft landscape,” Keith Harris, director of technology at Kelley Create, told us. “We would struggle to build our own expertise and keep current with the constant changes coming at us from Microsoft. That’s if we could even identify talent who would want to spend their days deciphering Microsoft’s maze of programs and terminology; that takes a special person to want to do that!”
+
+“Regular health checks with experts at Sherweb really help to keep us on track and understand what to focus on. And even more impressive is that they really simplify the complexity and make it almost a paint by numbers exercise for us to follow,” Harris added.
+
+“With the Microsoft CSP program evolving so quickly, it wasn’t just a question of whether we understood the changes, it was about making sure we were approaching them the right way and adapting our business accordingly,” said Eric Veenendaal, founder and CEO of Convverge, in a statement. “Sherweb provided us with their insights, validated what we were already doing and recommended adjustments where it made sense. Their perspective has provided tremendous value to Convverge.”
+
+Sherweb’s MSPs can access the following:
+
+Get clear guidance on program changes : Sherweb makes complex MAICPP updates manageable by explaining changes in real time and in plain language. This ensures MSPs know exactly what’s changing and why it matters.
+
+: Sherweb makes complex MAICPP updates manageable by explaining changes in real time and in plain language. This ensures MSPs know exactly what’s changing and why it matters. Connect with real experts, not portals : When program changes roll out, there’s someone to call–not a PDF to read. Sherweb provides MSPs with timely answers and actionable support, tailored to their business.
+
+: When program changes roll out, there’s someone to call–not a PDF to read. Sherweb provides MSPs with timely answers and actionable support, tailored to their business. Capture every incentive : Sherweb helps MSPs build Partner Capability Scores, complete required skilling or certifications and maximize performance-based benefits, cashback and other rewards.
+
+: Sherweb helps MSPs build Partner Capability Scores, complete required skilling or certifications and maximize performance-based benefits, cashback and other rewards. Stay compliant : Sherweb guides MSPs through Microsoft’s security, billing and operational requirements. This helps them to maintain eligibility, protect margins and avoid costly compliance errors.
+
+: Sherweb guides MSPs through Microsoft’s security, billing and operational requirements. This helps them to maintain eligibility, protect margins and avoid costly compliance errors. Unlock insights and streamline operations: MSPs gain access to tools like Microsoft Lighthouse and Office Protect to track progress, identify growth opportunities and uncover security gaps. Sherweb also helps reduce internal costs with insights into licensing benefits packages, demo environments and on-prem services.
+
+“As the Microsoft CSP program evolves, our top priority is making this transition easier for MSPs by helping them to understand and manage each new requirement, so they can stay compliant, protect their margins and continue delivering top-quality service to their customers,” said Laflamme.
+
+How to move forward: strategic moves that preserve customers and revenue
+
+If you still need a few steps to get started, download our checklist below as you weigh what the program might mean for your business.
+
+Friction, consolidation, and other ongoing trends likely to accelerate in the short term
+
+The rules are likely to accelerate consolidation among marginal resellers, increase distributor manage-and-remediate activity, and shift some SMB customers into bundled offerings or multiyear agreements. For customers, the visible short-term effect may be friction on new orders or renewals where partners have not updated PLA mappings or attestation flows. Partners that simplify the customer acceptance path and offer clear multi-year value propositions can reduce this friction and retain their clients’ long-term investments in Microsoft solutions.

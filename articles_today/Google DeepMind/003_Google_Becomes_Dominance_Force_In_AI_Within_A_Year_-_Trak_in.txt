@@ -1,0 +1,20 @@
+Title: Google Becomes Dominance Force In AI Within A Year - Trak.in
+Company: Google DeepMind
+Source: Trak.in
+URL: https://trak.in/stories/google-becomes-dominance-force-in-ai-within-a-year/
+
+Once dismissed as a laggard in the artificial intelligence race, Google has staged a dramatic comeback, emerging as a strong consumer-facing AI player within just a year. In early 2023, Google rushed to launch Bard, its answer to ChatGPT, only to face ridicule when the chatbot made a factual error about the James Webb telescope. Later, AI Overviews, a search feature introduced in May 2024, faced mockery for suggesting “glue pizza” recipes and eating rocks. Despite decades of AI investments, including the acquisition of DeepMind in 2014 and advances in research, Google appeared unprepared. Analysts argued the company had grown complacent, focusing more on integrating AI into platforms than delivering direct consumer services.
+
+Google’s AI Turnaround: DeepMind Consolidation and Breakthrough Consumer Tools
+
+The turning point came in 2024. Google co-founder Sergey Brin returned to the Googleplex, while leadership consolidated all AI teams under the Google DeepMind brand, led by Nobel laureate Demis Hassabis. CEO Sundar Pichai said reorganizing teams and deploying custom Tensor Processing Units (TPUs) were essential to regaining momentum. AI Overviews, despite early stumbles, marked the beginning of the turnaround, soon followed by NotebookLM, a tool that synthesizes documents into summaries or podcasts.
+
+At its May 2025 developer conference, Google unveiled Veo 3, a breakthrough video generation tool, and AI Mode, transforming search into a chatbot-like experience. August saw the Pixel smartphone launch with powerful AI features like 100x zoom and real-time translation, while September brought video generation to YouTube. Google also introduced image editing via Gemini’s “Nano Banana,” which became a cultural hit, helping Gemini surpass ChatGPT in iPhone downloads.
+
+Google Gains Legal Victory and Apple Partnership Boost, Eyes Long-Term AI Monetization
+
+Google’s outlook brightened further in September when a federal judge dismissed demands to sell Chrome in its antitrust case. Momentum grew as Bloomberg reported Apple is considering Gemini to power an upgraded Siri. Analysts say monetization remains uncertain, but Google’s strategy is clear: provide free AI services now to build user engagement and convert it into revenue later.
+
+Summary:
+
+Once ridiculed for Bard and AI Overviews errors, Google has rapidly transformed into a consumer-focused AI leader. Consolidating DeepMind, launching NotebookLM, Veo 3, AI Mode, Pixel AI, and Gemini tools, and securing legal and Apple partnership wins, the company now aims to engage users with free AI services while building long-term monetization.

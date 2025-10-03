@@ -1,0 +1,28 @@
+Title: Linux Foundation launches Newton with Disney, DeepMind and Nvidia to advance robotics AI - Robotics & Automation News
+Company: Google DeepMind
+Source: Robotics & Automation News
+URL: https://roboticsandautomationnews.com/2025/10/02/linux-foundation-launches-newton-with-disney-deepmind-and-nvidia-to-advance-robotics-ai/95112/
+
+The Linux Foundation, the nonprofit organization enabling mass innovation through open source code, has launched Newton, an open source, GPU-accelerated, extensible physics engine that enables faster, more scalable simulations to lower the barrier to robotics research.
+
+Co-developed by Disney Research, Google DeepMind, and Nvidia, Newton was designed and built by and for robotics developers to tackle the modern-day challenges of building generalist robots.
+
+Built on Nvidia Warp and OpenUSD, Newton delivers GPU‑accelerated simulation with a flexible, extensible architecture that supports multiple physics solvers.
+
+This enables complex, contact‑rich robot behaviors – such as walking on snow or gravel and manipulating delicate objects like cups and fruit – enabling the robots to learn these complex skills with greater accuracy and speed, and transfer them to the real world.
+
+Jim Zemlin, executive director of the Linux Foundation, says: “Bringing Newton to the Linux Foundation marks an important step forward for scaling collaborative robotics simulation that accelerates development, reduces costs and gets us closer to the future of sim-to-real robots.
+
+“We’re pleased to welcome Newton and provide the neutral governance its global community needs to build the future of generalist robotics.”
+
+The project has already gathered wide participation and support from the industry, including esteemed universities Technical University of Munich and Peking University, robotics company Lightwheel and simulation engine company, Style3D.
+
+Under the Linux Foundation’s governance, Newton will remain vendor neutral, fostering open, community-driven growth, ensuring accessibility, and supporting long-term viability.
+
+Moritz Bächer, director at Disney Research, says: “At Disney, we don’t leave a stone unturned to physically represent our beloved characters as authentically as possible in our Parks.
+
+“This has led to unique expertise in simulating highly complex robotic systems. Newton’s architecture has made it possible for us to create Kamino, a simulator that unlocks the potential of reinforcement learning for robotic systems of unmatched complexity.”
+
+Rev Lebaredian, vice president of Omniverse and simulation technology at Nvidia, says: “Robots, like intelligence, must first be trained in simulation before they can safely operate in the real world.
+
+“Newton brings together GPU acceleration, differentiable physics and open standards like OpenUSD into an open source platform for robotics. Under the Linux Foundation, we’re enabling the global community to accelerate robotics innovation – making general purpose robots faster to develop, more affordable to build and more reliable to deploy.”

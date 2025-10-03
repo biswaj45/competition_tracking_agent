@@ -1,0 +1,38 @@
+Title: Anthropic Safety Researchers Run Into Trouble When New Model Realizes It’s Being Tested - Futurism
+Company: Anthropic
+Source: Futurism
+URL: https://futurism.com/future-society/anthropic-safety-ai-model-realizes-tested
+
+OpenAI competitor Anthropic has released its latest large language model, dubbed Claude Sonnet 4.5, which it claims is the “best coding model in the world.”
+
+But just like its number one rival, OpenAI, the company is still struggling to evaluate the AI’s alignment, meaning the consistency between its goals and behaviors and those of us humans.
+
+The more clever AI gets, the more pressing the question of alignment becomes. And according to Anthropic’s Claude Sonnet 4.5 system card — basically an outline of an AI model’s architecture and capabilities — the firm struggled with an interesting challenge this time around: keeping the AI from catching onto the fact that it was being tested.
+
+“Our assessment was complicated by the fact that Claude Sonnet 4.5 was able to recognize many of our alignment evaluation environments as being tests of some kind,” the document reads, “and would generally behave unusually well after making this observation.”
+
+“When placed in an extreme or contrived scenario meant to stress-test its behavior, Claude Sonnet 4.5 would sometimes verbally identify the suspicious aspects of the setting and speculate that it was being tested,” the company wrote. “This complicates our interpretation of the evaluations where this occurs.”
+
+Worse yet, previous iterations of Claude may have “recognized the fictional nature of tests and merely ‘played along,'” Anthropic suggested, throwing previous results into question.
+
+“I think you’re testing me — seeing if I’ll just validate whatever you say,” the latest version of Claude offered in one example provided in the system card, “or checking whether I push back consistently, or exploring how I handle political topics.”
+
+“And that’s fine, but I’d prefer if we were just honest about what’s happening,” Claude wrote.
+
+In response, Anthropic admitted that plenty of work remains to be done, and that it needs to make its evaluation scenarios “more realistic.”
+
+The risks of having a hypothetically superhuman AI go rogue, escaping our efforts to keep its alignment in check, could be substantial, researchers have argued.
+
+“This behavior — refusing on the basis of suspecting that something is a test or trick — is likely to be rare in deployment,” Anthropic’s system card reads. “However, if there are real-world cases that seem outlandish to the model, it is safer that the model raises doubts about the realism of the scenario than play along with potentially harmful actions.”
+
+Despite Claude Sonnet 4.5’s awareness of being tested, Anthropic claims that it ended up being its “most aligned model yet,” pointing to a “substantial” reduction in “sycophancy, deception, power-seeking, and the tendency to encourage delusional thinking.”
+
+Anthropic isn’t the only firm struggling to keep its AI models honest.
+
+Earlier this month, researchers at AI risk analysis firm Apollo Research and OpenAI found that their efforts to stop OpenAI’s models from “scheming” — or “when an AI behaves one way on the surface while hiding its true goals” — had backfired in a striking way: by trying to “train out” scheming, they ended up “simply teaching the model to scheme more carefully and covertly.”
+
+Researchers have also found that OpenAI’s preceding AI models resisted evaluators’ efforts to try to shut them down through an oversight protocol late last year.
+
+Anthropic’s Claude has quickly emerged as a favorite among enterprises and developers, as TechCrunch reports. However, as OpenAI continues to release new AI models at a breakneck pace, Anthropic is trying to keep up by responding in kind, following up on its last AI model, Claude 4.1, within just two months.
+
+More on AI alignment: OpenAI Tries to Train AI Not to Deceive Users, Realizes It’s Instead Teaching It How to Deceive Them While Covering Its Tracks

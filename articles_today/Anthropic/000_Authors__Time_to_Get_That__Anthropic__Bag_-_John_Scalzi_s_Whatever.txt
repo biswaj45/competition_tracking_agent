@@ -1,0 +1,20 @@
+Title: Authors, Time to Get That (Anthropic) Bag - John Scalzi's Whatever
+Company: Anthropic
+Source: John Scalzi's Whatever
+URL: https://whatever.scalzi.com/2025/10/02/authors-time-to-get-that-bag/
+
+Authors, Time to Get That (Anthropic) Bag
+
+To begin, for those of you who do not follow such things with intense interest, a little context about the “AI” company Anthropic being sued for stealing authors’ works and reaching a settlement. Go read that and come back when you do.
+
+The law firm representing authors in the suit has posted up a searchable database listing which works are included in the settlement. I went and looked and had 17 qualifying works, and filed claims for them; at $3,000 per title it adds up. Now, how much of that $3k/title I get after lawyer payout and other shenanigans will be another question entirely, but that’s for another time.
+
+I will note that this settlement is not “free” money – my work, along with the work of thousands of other authors, was stolen to feed an LLM whose function is at the heart of Anthropic’s current $180 billion-plus market valuation. This settlement is, bluntly, the absolute minimum Anthropic could get away with paying.
+
+It is also more than I expected. I had expected Anthropic to litigate this thing until the heat death of the universe. But the fact of the matter is that the damage, such as it is, has already been done. Anthropic has reaped the benefit of its theft and any additional training data for LLMs will have to come from other sources, and at this point someone in Anthropic’s legal department decided it’s better to throw a few (relative) coins to copyright holders than to have a legal liability outstanding. Authors qualified for the settlement can refuse it and pursue individual claims against Anthropic, but most authors can’t afford to do that and won’t (and wouldn’t necessarily get more even if they did). For most of us, this is it.
+
+My suggestion to other authors, unless you genuinely have hundreds of thousands to burn to pursue an individual case, is to check that database above to see if you have a title in there that you can file a claim for. The settlement is not great! But it’s still something, and these days most authors — hell, most people — are not in a position to turn down something if they can get it.
+
+On a slightly lighter note, having so many works used to train Anthropic’s Large Language Model (as well as most of the other ones; they all sifted through the same stock of stolen works) at answers the question about why sometimes the responses I get from them sound a little like me. It’s because more than a little of me is in there. I do a better version of me, though. I always will.
+
+— JS

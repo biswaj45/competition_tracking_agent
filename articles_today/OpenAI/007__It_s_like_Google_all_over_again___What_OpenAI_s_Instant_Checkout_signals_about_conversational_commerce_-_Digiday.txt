@@ -1,0 +1,32 @@
+Title: ‘It’s like Google all over again’: What OpenAI's Instant Checkout signals about conversational commerce - Digiday
+Company: OpenAI
+Source: Digiday
+URL: https://digiday.com/marketing/its-like-google-all-over-again-what-openai-instant-checkout-signals-about-conversational-commerce/
+
+For a company that reportedly has no plans to advertise, OpenAI has laid yet another brick in the foundation of what could be an ad business. On Monday, the tech behemoth launched Instant Checkout, an in-app shopping feature.
+
+Ironically, commerce and marketing experts are less interested in what Instant Checkout means for OpenAI’s ad roadmap, and more interested in what it signals about agentic commerce, product discovery and zero-click search, six marketers told Digiday.
+
+Consider it a sign of the times: product discovery is moving from traditional search engines and marketplaces and toward AI-powered conversations. AI chat bots are expected to become the next brand awareness battleground.
+
+“It’s like Google and SEO all over again. How do you basically trick the system to make sure [your brand] shows up,” said Martin Kristiseter, CEO of Digital Remedy, a performance marketing company.
+
+OpenAI’s Instant Checkout feature — which allows users to search, shop and purchase within ChatGPT — was less a matter of if and more a matter of when, given more shoppers are starting their online search with AI chatbots. To put some numbers to it, 68% of shoppers across the world have used AI tools like ChatGPT to shop, according to a report published by creative agency VML. Other large language models have similar offerings, including Perplexity’s Buy with Pro functionality, which rolled out late last year and Microsoft Copilot’s Merchant program.
+
+But ad spend hasn’t started to shift in response to these tools — at least not yet, agency execs say. There’s a bigger fear of missing out and being late to the AI hype train than there is expectations around incremental growth.
+
+“It’s definitely interesting and we are getting client questions about it already,” said Mike Feldman, svp of commerce at Flywheel. He later added, “Like much of AI, it’s a bit of a wait and see with lots and lots of potential for disruption.”
+
+Marketers aren’t so convinced by Instant Checkout
+
+Instant Checkout is in a nascent stage with limited merchants, a clunky user experience and it’s unclear how much insight merchants and their ad agency partners will have into things like brand sentiment and product listing rankings, according to two marketing execs Digiday spoke with for this piece. OpenAI highlighted in an announcement that “data sharing is minimal — only the information required to complete the order is shared with the merchant.”
+
+Marketers question whether brand or performance dollars should be spent to test and learn, how AI chatbots rank products to show to shoppers, what information will be available in regards to search queries, and if enough consumers will start their search with AI chatbots to make any dollars spent worth it.
+
+What is clear is that AIO and GEO are becoming a new race, hinged on brands having a strong web presence to show up in an AI chatbot.
+
+“It’s not a matter of: how do I get set up so that ChatGPT recommends my product and that I can sell my product directly in there? But how does ChatGPT see me as a brand overall on the web…” said Zubin Mowlavi, evp of commerce at Vayner Media.
+
+There’s already an appetite and interest from clients regarding agentic AI and AI commerce, according to four agency execs (although budgets and specific strategies are still in the works). However, it’s entirely feasible for agentic AI to be shelved in the next 12-18 months as the bell curve goes through the trough of disillusionment. Gartner predicts more than 40% of agentic AI projects will be canceled by the end of 2027.
+
+As Simon Poulton, evp of innovation and growth at Tinuiti, puts it, “Right now, there’s just curiosity across the board. A lot of folks are, frankly, just keeping up with drinking the fire hoses as they’re going.”

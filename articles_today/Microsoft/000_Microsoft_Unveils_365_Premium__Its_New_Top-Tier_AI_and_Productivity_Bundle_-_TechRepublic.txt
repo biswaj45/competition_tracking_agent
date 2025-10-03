@@ -1,0 +1,39 @@
+Title: Microsoft Unveils 365 Premium, Its New Top-Tier AI and Productivity Bundle - TechRepublic
+Company: Microsoft
+Source: TechRepublic
+URL: https://www.techrepublic.com/article/news-microsoft-365-premium/
+
+Image: Microsoft
+
+Microsoft has launched Microsoft 365 Premium, a new subscription plan that blends its well-known Office apps with advanced AI features. The $19.99 per month service is designed for individuals and aims to simplify the company’s consumer lineup while offering more value than separate plans.
+
+The new plan combines existing Microsoft 365 Family features with what was previously offered in Copilot Pro. It includes Word, Excel, PowerPoint, OneNote, and Outlook, all with Copilot built directly inside. The package also includes 1TB of cloud storage, Microsoft Defender security, and exclusive AI features like Researcher, Analyst, Office Agent, and Agent Mode.
+
+The plan offers the company’s highest Copilot usage limits, covering AI-powered image generation, podcasts, voice commands, and deep research.
+
+Yusuf Mehdi, Microsoft’s executive vice president and consumer chief marketing officer, called the plan “our most powerful AI and productivity subscription for individuals” in a blog post.
+
+The move follows Microsoft’s push to integrate its Copilot AI assistant into daily workflows, and it comes at a time when tech giants are racing to monetize generative AI tools.
+
+Competing with ChatGPT Plus
+
+The $19.99 price signals that Microsoft is clearly putting 365 Premium head-to-head with OpenAI’s ChatGPT Plus, which costs the same but does not include productivity apps.
+
+“It’s really going to be our most powerful AI and productivity subscription for any individual. It brings together our trusted collection of productivity apps with Copilot built-in, along with our highest Copilot usage limits and exclusive features,” Gareth Oystryk, senior director of marketing for Copilot Pro and Microsoft 365, told The Verge.
+
+Microsoft is banking on the appeal of having Office apps plus AI in one package as a stronger deal than ChatGPT Plus. The introduction of 365 Premium also means the end of Copilot Pro sales; however, existing Copilot Pro customers will not be automatically upgraded to Premium, but they will be able to switch.
+
+“As part of this simplification, we’ll no longer sell Copilot Pro—Copilot Pro subscribers can switch to Microsoft 365 Premium for more value,” Mehdi wrote. “Customers with both Microsoft 365 Personal or Family and Copilot Pro can switch to Microsoft 365 Premium and get everything they had before while enjoying meaningful savings.”
+
+Beyond Premium, Microsoft is extending higher AI usage limits to its Personal ($9.99/month) and Family ($12.99/month) subscribers at no additional cost. Meanwhile, Microsoft also announced that students around the world can claim one year of Microsoft 365 Personal for free, provided they register with a valid university email by Oct. 31, 2025, expanding an earlier US-only offer.
+
+Microsoft has also launched its new Security Store, which features security solutions and agents that work with Microsoft security products, including the Copilot AI.
+
+Subscribe to the Microsoft Weekly Newsletter
+
+Be your company's Microsoft insider by reading these Windows and Office tips, tricks, and cheat sheets. Delivered Mondays and Wednesdays
+
+Email Address
+By signing up to receive our newsletter, you agree to our Terms of Use and Privacy Policy. You can unsubscribe at any time.
+Subscribe
+Share Article

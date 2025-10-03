@@ -1,0 +1,24 @@
+Title: What everyone is saying about Sora - Platformer
+Company: OpenAI
+Source: Platformer
+URL: https://www.platformer.news/sora-2-reactions-openai/
+
+This is a column about AI. My boyfriend works at Anthropic. See my full ethics disclosure here .
+
+On Tuesday, I shared my early impressions of Sora, OpenAI's new TikTok-like social app filled with AI-generated clips that can feature the likenesses of you and your friends. Today, let's see how the rest of the world is reacting.
+
+It has been a momentous week for OpenAI. In addition to Sora, the company introduced commerce in ChatGPT, parental controls, and its first extended ad campaign. It also completed a secondary sale of its shares that let staff members sell $6.6 billion worth of stock at a $500 billion valuation, making the company the most highly valued startup in the world.
+
+But by far the most chatter about the company related to its invite-only, iOS-only social app, which both impressed users with its uncannily realistic videos and scared them about the societal implications of being able to easily create deepfakes.
+
+Here are the reactions and takes that have mattered the most so far.
+
+It's a hit. The first thing to say about Sora is that people are eager to try it. Despite requiring a (scarce) invitation to use, Sora is the No. 3 most-downloaded app in the US App Store today, trailing only Google's Gemini (still riding high on the success of its Nano Banana image generator) and OpenAI's own ChatGPT. Third-party estimates put downloads at around 164,000 in its first two days of release. It had about as many day-one downloads as xAI's Grok did.
+
+It's slop. By volume, the biggest number of replies to OpenAI's announcement of Sora on X are criticisms of the company's embrace of AI-generated inanity. "Finally, pure slop," read the most-liked reply.) "ah yes, infinite slop. Just what we needed," reads a highly upvoted response to the company's livestream on YouTube.
+
+It's a betrayal of the mission. Many commentators have observed that OpenAI's mission is to build artificial general intelligence that benefits all of humanity, and that AI-generated slop feeds seem to be ... something else. "Sam Altman 2 weeks ago: 'we need 7 trillion dollars and 10GW to cure cancer,'" read one X post that Altman ultimately responded to today. "Sam Altman today: 'We are launching AI slop videos marketed as personalized ads.'” Others made memes to the same effect; here's another viral dunk on the subject.
+
+It's a potential revenue source. In his response to the above, Altman acknowledged a financial motive in building a social app. "We do mostly need the capital for build AI that can do science, and for sure we are focused on AGI with almost all of our research effort," Altman wrote on X. "It is also nice to show people cool new tech/products along the way, make them smile, and hopefully make some money given all that compute need." He added: "Reality is nuanced when it comes to optimal trajectories for a company."
+
+It's very Sam Altman-forward. Just as Elon Musk made himself the protagonist of X, so has Altman put himself front and center in Sora. Somewhat incredibly, Altman is allowing anyone to remix his likeness into any video they can imagine. As a result, he's everywhere. At TechCrunch, Amanda Silberling notes just how much fun people seem to be having putting Altman videos that make use of other people's intellectual property, or mocking the idea of copyright altogether. Silberling writes:
