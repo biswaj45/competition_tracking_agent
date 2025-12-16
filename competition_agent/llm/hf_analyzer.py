@@ -2,6 +2,7 @@
 Hugging Face transformers integration for enhanced content analysis and summarization.
 """
 from typing import List, Dict, Optional
+import os
 import torch
 from transformers import (
     AutoTokenizer, 
@@ -14,6 +15,10 @@ from transformers import (
 import numpy as np
 import logging
 
+# Disable TensorFlow warnings and force PyTorch backend
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+os.environ['TRANSFORMERS_NO_TF'] = '1'
+
 class HFAnalyzer:
     def __init__(self):
         self.logger = logging.getLogger(__name__)
@@ -24,32 +29,42 @@ class HFAnalyzer:
         self.torch_device = torch.device("cuda" if use_cuda else "cpu")
         print("Device set to use", "cuda" if use_cuda else "cpu")
 
-        # Initialize the models
+        # Initialize T5 models first (PyTorch only, more stable)
         try:
-            # Initialize summarization model
-            if use_cuda:
-                self.summarizer = pipeline(
-                    "summarization",
-                    model="t5-small",
-                    device=self.device
-                )
-            else:
-                self.summarizer = pipeline(
-                    "summarization",
-                    model="t5-small"
-                )
-
-            # Initialize T5 model and tokenizer for key quote extraction
             self.summary_tokenizer = T5Tokenizer.from_pretrained("t5-small")
             self.summary_model = T5ForConditionalGeneration.from_pretrained("t5-small")
             if use_cuda:
                 self.summary_model = self.summary_model.to(self.torch_device)
+            self.logger.info("✓ T5 model loaded successfully")
+        except Exception as e:
+            self.logger.error(f"Failed to load T5 model: {e}")
+            self.summary_tokenizer = None
+            self.summary_model = None
+
+        # Initialize the other models
+        try:
+            # Initialize summarization pipeline (may fail due to TF dependencies)
+            try:
+                if use_cuda:
+                    self.summarizer = pipeline(
+                        "summarization",
+                        model="t5-small",
+                        device=self.device
+                    )
+                else:
+                    self.summarizer = pipeline(
+                        "summarization",
+                        model="t5-small"
+                    )
+            except:
+                self.summarizer = None  # Pipeline might fail, but direct T5 model still works
 
             # Initialize sentiment analysis
             self.sentiment_tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english")
             self.sentiment_model = AutoModelForSequenceClassification.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english")
             if use_cuda:
                 self.sentiment_model = self.sentiment_model.to(self.torch_device)
+            
             if use_cuda:
                 self.sentiment_analyzer = pipeline(
                     "sentiment-analysis",
@@ -78,11 +93,16 @@ class HFAnalyzer:
                 )
 
         except Exception as e:
-            self.logger.error(f"Error loading models: {str(e)}")
-            self.summarizer = None
-            self.sentiment_analyzer = None
-            self.sentiment_tokenizer = None
-            self.sentiment_model = None
+            self.logger.error(f"Error loading pipeline models: {str(e)}")
+            # Set pipeline models to None on failure, but T5 might still work
+            if not hasattr(self, 'summarizer'):
+                self.summarizer = None
+            if not hasattr(self, 'sentiment_analyzer'):
+                self.sentiment_analyzer = None
+                self.sentiment_tokenizer = None
+                self.sentiment_model = None
+            if not hasattr(self, 'classifier'):
+                self.classifier = None
 
     def _extract_competitor_mentions(self, text: str, company: str) -> List[Dict]:
         """Extract and analyze competitor mentions in text"""
